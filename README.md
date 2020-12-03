@@ -36,3 +36,6 @@ https://docs.google.com/spreadsheets/d/1-lZR4Ver-mSS5PPS5UrDLNc4XaY_9hKYLU6RhQ-H
 
 ## 外部API
 Google Map API (地図機能で使用)
+
+## 使用素材
+- 写真素材（フリー）ぱくたそ: https://www.pakutaso.com/  O-DAN: https://o-dan.net/ja/
