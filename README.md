@@ -22,7 +22,7 @@
 ### 主な利用シーン
 旅行やお出かけ等、次の行き先を決める際の利用を想定
 
-## 設計書
+<!--## 設計書-->
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1-lZR4Ver-mSS5PPS5UrDLNc4XaY_9hKYLU6RhQ-HYOc/edit#gid=0
@@ -34,5 +34,5 @@ https://docs.google.com/spreadsheets/d/1-lZR4Ver-mSS5PPS5UrDLNc4XaY_9hKYLU6RhQ-H
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-##外部API
+## 外部API
 Google Map API (地図機能で使用)
