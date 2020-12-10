@@ -1,0 +1,2 @@
+module HashtagSpotsHelper
+end

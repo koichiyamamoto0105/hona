@@ -1,0 +1,2 @@
+class HashtagSpot < ApplicationRecord
+end

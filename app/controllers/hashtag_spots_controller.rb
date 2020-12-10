@@ -1,0 +1,2 @@
+class HashtagSpotsController < ApplicationController
+end
