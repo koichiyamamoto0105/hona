@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_10_101013) do
+ActiveRecord::Schema.define(version: 2020_12_12_081146) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(version: 2020_12_10_101013) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "maps", force: :cascade do |t|
+    t.text "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.text "title"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
   create_table "spots", force: :cascade do |t|
     t.text "spot_name"
     t.text "spot_image"
@@ -58,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_12_10_101013) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.text "profile_image"
+    t.string "profile_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname"

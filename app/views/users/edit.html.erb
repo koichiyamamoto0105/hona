@@ -1,0 +1,42 @@
+<h3>マイページ編集</h3>
+
+<%= form_with model:@user, local: true do |f| %>
+
+	<!-- エラーメッセージ表示-->
+	<% if @user.errors.any? %>
+		<div id="error_explanation">
+			<h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
+			<ul>
+				<% @user.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<!-- エラーメッセージ表示-->
+
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name, class: "name" %>
+	</div>
+
+	<div class="field">
+		<%= f.label :image %>
+		<%= f.attachment_field :profile_image %>
+	</div>
+
+	<div class="field">
+		<%= f.label "ユーザーネーム" %>
+		<%= f.text_field :nickname, class: "name" %>
+	</div>
+
+	<div class="field">
+		<%= f.label :国 %>
+		<%= f.country_select :country %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+
+<% end %>

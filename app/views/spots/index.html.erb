@@ -1,17 +1,14 @@
 <div class="gmap">
   <h2>gmap</h2>
 
-  <!-- 地名入力用のinputを追加 -->
   <input id="address" type="textbox" value="">
-
-  <!-- buttonをクリックしたらcodeAddressを実行　-->
   <input type="button" value="検索" onclick="codeAddress()">
 
    <!-- 地図情報を保存するフォーム -->
   <%#= form_with model: @spot do |f| %>
   <%= form_for @spot do |f| %>
   <!-- 検索値を隠しデータとして送信-->
-  <input type="hidden" name="map[address]" id="hidden_address">
+  <input type="hidden" name="spot[address]" id="hidden_address">
   <%= f.label :タイトル %>
   <%= f.text_field :spot_name %>
   <%= f.label :コメント %>
@@ -19,48 +16,25 @@
   <%= f.submit "保存" %>
   <% end %>
 
-  <%= render 'spots/spot', spot: @spot %>
+  <%#= render 'spots/spot', spot: @spot %>
+  <%= render @spots %>
   <div id='map'>
   </div>
 
-</div>
-
-
 <script>
-
   let map
   let geocoder
-  let marker
-
 
   function initMap() {
     geocoder = new google.maps.Geocoder()
 
-    mapInstance = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
       center: {
-        lat: 34.704064,
-        lng: 135.500435
+        lat: -34.397,
+        lng: 150.644
       },
       zoom: 8
     });
-
-
-  <% @spots.each do |spot| %>
-
-    // google.maps.LatLngインスタンスを生成
-    pos = new google.maps.LatLng(
-    <%= spot.latitude %>, //latitude
-    <%= spot.longitude %> //longitude
-    );
-    default_marker = new google.maps.Marker({
-    map: mapInstance,
-    position: pos,
-    icon: {
-    url: ' https://maps.google.com/mapfiles/ms/icons/green-dot.png', //アイコンのURL
-    scaledSize: new google.maps.Size(40, 40) //サイズ
-    }
-    });
-    <% end %>
   }
 
   function codeAddress() {
@@ -70,24 +44,16 @@
       'address': inputAddress
     }, function (results, status) {
       if (status == 'OK') {
-        mapInstance.setCenter(results[0].geometry.location);
+        map.setCenter(results[0].geometry.location);
 
-         if(marker != null){
-        marker.setMap(null);
-        }
-        marker = null;
-
-        marker = new google.maps.Marker({
-          map: mapInstance,
+        var marker = new google.maps.Marker({
+          map: map,
           position: results[0].geometry.location
         });
 
-　　　　  let title = document.getElementById('map_title');
+        // タイトルフォームにデフォルト値として検索値を設定
+        let title = document.getElementById('map_title');
         title.setAttribute("value", inputAddress);
-
-        // // タイトルフォームにデフォルト値として検索値を設定
-        // let spot_name = document.getElementById('map_spot_name');
-        // spot_name.setAttribute("value", inputAddress);
 
         // 検索値を隠しデータとしてセット
         let hidden_address = document.getElementById('hidden_address');

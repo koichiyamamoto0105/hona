@@ -1,0 +1,23 @@
+<h3>マイページ</h3>
+
+<table class="table">
+	<tr><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
+
+ 	<tr>
+		<th>名前</th>
+		<th><%= @user.name %></th>
+	</tr>
+
+	<tr>
+		<th>ユーザーネーム</th>
+		<th><%= @user.nickname %></th>
+	</tr>
+
+	<tr>
+		<th>国</th>
+		<th><%= @user.country %></th>
+  </tr>
+
+</table>
+
+<%= link_to "マイページ編集", edit_user_path(@user.id) %>
