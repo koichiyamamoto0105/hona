@@ -8,16 +8,21 @@
   <%= form_with model: @map, local:true do |f| %>
   <!-- 検索値を隠しデータとして送信-->
   <input type="hidden" name="map[address]" id="hidden_address">
+  <%= f.label :spotname, "スポット名" %>
+  <%= f.text_field :spotname %>
   <%= f.label :title, "タイトル" %>
   <%= f.text_field :title %>
   <%= f.label :comment, "コメント" %>
-  <%= f.text_field :comment %>
+  <%= f.text_area :comment %>
+  <%= f.label :image, "写真" %>
+  <%= f.attachment_field :image %>
   <%= f.submit "保存" %>
   <% end %>
 
 
   <div id='map'>
   </div>
+  <!--オススメで表示させる？-->
   <%= render @maps %>
 </div>
 
@@ -41,7 +46,7 @@
   });
 
 
-  // 近隣店舗にマーカーを立てる
+  // マーカーを立てる
   <% @maps.each do |map| %>
     var image = "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
     var id = <%= map.id %>
@@ -57,7 +62,7 @@
     // 吹き出しの追加
     infoWindow["<%= map.id %>"] = new google.maps.InfoWindow({
     // 吹き出しに詳細ページへのリンクを追加
-    content:  `<a href=maps/${"<%= map.id %>"}>${"<%= map.title %>"} </a>`
+    content:  `<a href=maps/${"<%= map.id %>"}>${"<%= map.spotname %>"} </a>`
     });
 
     markerEvent("<%= map.id %>");
@@ -90,8 +95,8 @@
           position: results[0].geometry.location
         });
 
-        let title = document.getElementById('map_title');
-        title.setAttribute("value", inputAddress);
+        let spotname = document.getElementById('map_spotname');
+        spotname.setAttribute("value", inputAddress);
 
         let hidden_address = document.getElementById('hidden_address');
         hidden_address.setAttribute("value", inputAddress);

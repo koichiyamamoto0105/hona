@@ -9,4 +9,6 @@ class Map < ApplicationRecord
   geocoded_by :address
   before_validation :geocode
 
+  attachment :image
+
 end

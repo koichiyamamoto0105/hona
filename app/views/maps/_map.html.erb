@@ -1,2 +1,2 @@
-<div><%= link_to map.title, map_path(map.id) %></div>
-<div><%= link_to map.comment, map_path(map.id) %></div>
+<div><%= link_to map.spotname, map_path(map.id) %></div>
+<div><%= link_to attachment_image_tag(map, :image, :fill, 100, 100, fallback: "no_image.jpg"), map_path(map.id) %></div>

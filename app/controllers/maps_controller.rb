@@ -31,7 +31,7 @@ class MapsController < ApplicationController
     @map = Map.find(params[:id])
     if @map.user_id = current_user.id
     if @map.update(map_params)
-      redirect_to root_path
+      redirect_to maps_path
     else
       render :edit
     end
@@ -41,12 +41,12 @@ class MapsController < ApplicationController
   def destroy
     @map = Map.find(params[:id])
     @map.destroy
-    redirect_to root_path
+    redirect_to maps_path
   end
 
   private
 
   def map_params
-    params.require(:map).permit(:address, :latitude, :longitude, :title, :comment)
+    params.require(:map).permit(:address, :latitude, :longitude, :title, :comment, :spotname, :image)
   end
 end
