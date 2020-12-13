@@ -22,13 +22,14 @@
 </div>
 
 <script>
-  let map
-  let geocoder
-  // let marker
+  let map;
+  let geocoder;
   let marker = [];
   let infoWindow = [];
 
  function initMap(){
+
+    geocoder = new google.maps.Geocoder()
 
   // 初期位置の指定
   map = new google.maps.Map(document.getElementById('map'), {
@@ -55,12 +56,12 @@
 
     // 吹き出しの追加
     infoWindow["<%= map.id %>"] = new google.maps.InfoWindow({
-    // 吹き出しに店舗詳細ページへのリンクを追加
+    // 吹き出しに詳細ページへのリンクを追加
     content:  `<a href=maps/${"<%= map.id %>"}>${"<%= map.title %>"} </a>`
     });
 
     markerEvent("<%= map.id %>");
-   <% end %>
+  <% end %>
 
   // マーカークリック時に吹き出しを表示する
   function markerEvent(i) {
@@ -68,9 +69,38 @@
       infoWindow[i].open(map, marker[i]);
     });
   }
-}
+ }
 
-// 旧code
+    function codeAddress() {
+      let inputAddress = document.getElementById('address').value;
+
+    geocoder.geocode({
+      'address': inputAddress
+    }, function (results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+
+        if(marker != null){
+        marker.setMap(null);
+        }
+        marker = null;
+
+        var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        });
+
+        let title = document.getElementById('map_title');
+        title.setAttribute("value", inputAddress);
+
+        let hidden_address = document.getElementById('hidden_address');
+        hidden_address.setAttribute("value", inputAddress);
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer>
