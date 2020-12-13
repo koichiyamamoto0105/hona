@@ -1,1 +1,12 @@
 <h1>編集画面</h1>
+
+
+<%= form_with model: @map, local:true do |f| %>
+  <!-- 検索値を隠しデータとして送信-->
+  <input type="hidden" name="map[address]" id="hidden_address">
+  <%= f.label :title, "タイトル" %>
+  <%= f.text_field :title %>
+  <%= f.label :comment, "コメント" %>
+  <%= f.text_field :comment %>
+  <%= f.submit "保存" %>
+  <% end %>

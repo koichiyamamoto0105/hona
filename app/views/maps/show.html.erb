@@ -2,3 +2,6 @@
 
 <div><%= @map.title%></div>
 <div><%= @map.comment%></div>
+
+<td><%= link_to "編集", edit_map_path(@map) %></td>
+<td><%= link_to "削除", map_path(@map), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>

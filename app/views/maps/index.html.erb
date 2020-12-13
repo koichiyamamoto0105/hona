@@ -14,8 +14,7 @@
   <%= f.text_field :comment %>
   <%= f.submit "保存" %>
   <% end %>
-  <td><%#= link_to "編集", edit_map_path(@map) %></td>
-  <td><%#= link_to "削除", map_path(@map), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
+
 
   <div id='map'>
   </div>
@@ -25,72 +24,54 @@
 <script>
   let map
   let geocoder
-  // 変数を追加
-  let marker
+  // let marker
+  let marker = [];
+  let infoWindow = [];
 
-  function initMap() {
-    geocoder = new google.maps.Geocoder()
+ function initMap(){
 
-    // 変数の名前をmapInstanceに変更、デフォルト位置を東京に変更
-    mapInstance = new google.maps.Map(document.getElementById('map'), {
-      center: {
+  // 初期位置の指定
+  map = new google.maps.Map(document.getElementById('map'), {
+  center: {
         lat: 34.704064,
         lng: 135.500435
       },
-      zoom: 8
+  zoom: 8
+  });
+
+
+  // 近隣店舗にマーカーを立てる
+  <% @maps.each do |map| %>
+    var image = "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+    var id = <%= map.id %>
+    // 緯度経度のデータを作成
+    var markerLatLng = new google.maps.LatLng({lat: <%= map.latitude %>, lng: <%= map.longitude %>});
+    // マーカーの追加
+    marker["<%= map.id %>"] = new google.maps.Marker({
+      position: markerLatLng,
+      map: map,
+      icon: image,
     });
 
-    // 保存された地図情報からピンをさす
-    <% @maps.each do |map| %>
-    // google.maps.LatLngインスタンスを生成
-    pos = new google.maps.LatLng(
-    <%=map.latitude%>, //latitude
-    <%=map.longitude%> //longitude
-    );
-    default_marker = new google.maps.Marker({
-    map: mapInstance,
-    position: pos,
-    icon: {
-    url: ' https://maps.google.com/mapfiles/ms/icons/green-dot.png', //アイコンのURL
-    scaledSize: new google.maps.Size(40, 40) //サイズ
-    }
+    // 吹き出しの追加
+    infoWindow["<%= map.id %>"] = new google.maps.InfoWindow({
+    // 吹き出しに店舗詳細ページへのリンクを追加
+    content:  `<a href=maps/${"<%= map.id %>"}>${"<%= map.title %>"} </a>`
     });
-    <% end %>
-  }
 
-  function codeAddress() {
-    let inputAddress = document.getElementById('address').value;
+    markerEvent("<%= map.id %>");
+   <% end %>
 
-    geocoder.geocode({
-      'address': inputAddress
-    }, function (results, status) {
-      if (status == 'OK') {
-        // map→mapInstanceに変更
-        mapInstance.setCenter(results[0].geometry.location);
-
-        // 既存の検索マーカーを削除
-        if(marker != null){
-        marker.setMap(null);
-        }
-        marker = null;
-
-        // var marker → markerへ変更
-        marker = new google.maps.Marker({
-          //map→mapInstanceに変更
-          map: mapInstance,
-          position: results[0].geometry.location
-        });
-
-        let title = document.getElementById('map_title');
-        title.setAttribute("value", inputAddress);
-
-        let hidden_address = document.getElementById('hidden_address');
-        hidden_address.setAttribute("value", inputAddress);
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
+  // マーカークリック時に吹き出しを表示する
+  function markerEvent(i) {
+    marker[i].addListener('click', function() {
+      infoWindow[i].open(map, marker[i]);
     });
   }
+}
+
+// 旧code
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer>
 </script>

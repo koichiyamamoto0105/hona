@@ -40,7 +40,7 @@ class MapsController < ApplicationController
 
   def destroy
     @map = Map.find(params[:id])
-    @map.destoy
+    @map.destroy
     redirect_to root_path
   end
 
