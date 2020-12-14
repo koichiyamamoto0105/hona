@@ -4,6 +4,12 @@
 <%# @map.each do |map| %>
 
 <h2><%= @map.spotname %></h2>
+
+   <td id="like_<%= @map.id %>">
+     <%= render "maps/favorite", map: @map %>
+	</td>
+
+
 <div><%= @map.title %></div>
 <div><%= @map.comment %></div>
 <tr><%= attachment_image_tag(@map, :image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
@@ -16,5 +22,5 @@
 <td><%= link_to "削除", map_path(@map), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
 
 <h4>新規口コミ投稿</h4>
-<%= render 'maps/post', map: @map_new %>
+<%#= render 'maps/post', map: @map_new %>
 

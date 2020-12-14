@@ -1,0 +1,12 @@
+      <% if map.favorited_by?(current_user) %>
+         <%= link_to map_favorites_path(map), data: {"turbolinks" => false}, method: :delete, remote: true do  %>
+          <i class="fa fa-heart"></i>
+        <% end %>
+
+       <% else %>
+
+         <%= link_to map_favorites_path(map), data: {"turbolinks" => false}, method: :post, remote: true do %>
+          <i class="fa fa-heart-o"></i>
+         <% end %>
+        <% end %>
+        <%= map.favorites.count %>
