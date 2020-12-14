@@ -1,0 +1,10 @@
+<%= form_with model: map, local:true do |f| %>
+
+  <%= f.label :title, "タイトル" %>
+  <%= f.text_field :title %>
+  <%= f.label :comment, "コメント" %>
+  <%= f.text_area :comment %>
+  <%= f.label :image, "写真" %>
+  <%= f.attachment_field :image %>
+  <%= f.submit "口コミを投稿する" %>
+  <% end %>

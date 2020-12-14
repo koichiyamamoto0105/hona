@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_083143) do
+ActiveRecord::Schema.define(version: 2020_12_13_110230) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "spot_id"
+    t.integer "map_id"
     t.string "title"
     t.text "comment"
     t.datetime "created_at", null: false
@@ -51,17 +51,6 @@ ActiveRecord::Schema.define(version: 2020_12_13_083143) do
     t.integer "user_id"
     t.string "image_id"
     t.string "spotname"
-  end
-
-  create_table "spots", force: :cascade do |t|
-    t.text "spot_name"
-    t.text "spot_image"
-    t.text "address"
-    t.float "latitude"
-    t.float "longitude"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

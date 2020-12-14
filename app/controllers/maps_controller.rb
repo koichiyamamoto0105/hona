@@ -1,5 +1,8 @@
 class MapsController < ApplicationController
 
+  def top
+  end
+
   def index
     @map = Map.new
     # @user = @map.user
@@ -20,7 +23,10 @@ class MapsController < ApplicationController
 
   def show
     @map = Map.find(params[:id])
-    # @user = @map.user
+    @user = @map.user
+    @map_new = Map.new
+    # @maps = Map.all
+    # @maps = Map.where(id: id)
   end
 
   def edit
@@ -45,6 +51,10 @@ class MapsController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:name, :nickname, :profile_image, :country)
+  end
 
   def map_params
     params.require(:map).permit(:address, :latitude, :longitude, :title, :comment, :spotname, :image)

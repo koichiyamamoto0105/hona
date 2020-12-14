@@ -1,12 +1,20 @@
 <h1>詳細画面</h1>
+<td><%= link_to "口コミマップに戻る", maps_path %></td>
 
+<%# @map.each do |map| %>
 
 <h2><%= @map.spotname %></h2>
 <div><%= @map.title %></div>
 <div><%= @map.comment %></div>
 <tr><%= attachment_image_tag(@map, :image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
+<div><%= link_to @user.nickname, user_path(@user.id) %>さんが投稿しました。</div>
+<div><%= @map.created_at %></div>
 
+<%# end %>
 
-<td><%= link_to "口コミマップに戻る", maps_path %></td>
 <td><%= link_to "編集", edit_map_path(@map) %></td>
 <td><%= link_to "削除", map_path(@map), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
+
+<h4>新規口コミ投稿</h4>
+<%= render 'maps/post', map: @map_new %>
+
