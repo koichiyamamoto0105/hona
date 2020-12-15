@@ -25,6 +25,7 @@ class MapsController < ApplicationController
     @map = Map.find(params[:id])
     @user = @map.user
     @map_new = Map.new
+    @comment = Comment.new
     # @maps = Map.all
     # @maps = Map.where(id: id)
   end
@@ -35,13 +36,13 @@ class MapsController < ApplicationController
 
   def update
     @map = Map.find(params[:id])
-    if @map.user_id = current_user.id
+    # if @map.user_id = current_user.id
     if @map.update(map_params)
       redirect_to maps_path
     else
       render :edit
     end
-    end
+    # end
   end
 
   def destroy
@@ -59,4 +60,5 @@ class MapsController < ApplicationController
   def map_params
     params.require(:map).permit(:address, :latitude, :longitude, :title, :comment, :spotname, :image)
   end
+
 end

@@ -1,26 +1,37 @@
 <h1>詳細画面</h1>
 <td><%= link_to "口コミマップに戻る", maps_path %></td>
 
-<%# @map.each do |map| %>
-
-<h2><%= @map.spotname %></h2>
+<h1><%= @map.spotname %></h1>
 
    <td id="like_<%= @map.id %>">
      <%= render "maps/favorite", map: @map %>
 	</td>
 
-
-<div><%= @map.title %></div>
-<div><%= @map.comment %></div>
-<tr><%= attachment_image_tag(@map, :image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
-<div><%= link_to @user.nickname, user_path(@user.id) %>さんが投稿しました。</div>
-<div><%= @map.created_at %></div>
-
-<%# end %>
-
+	<h5>スポットの編集</h5>
 <td><%= link_to "編集", edit_map_path(@map) %></td>
 <td><%= link_to "削除", map_path(@map), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
 
+
+<% @map.comments.each do |comment| %>
+
+<div><%= comment.title %></div>
+<div><%= comment.comment %></div>
+<tr><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></tr>
+<div><%= link_to @user.nickname, user_path(@user.id) %>さんが投稿しました。</div>
+<div><%= comment.created_at %></div>
+<% end %>
+
+
 <h4>新規口コミ投稿</h4>
 <%#= render 'maps/post', map: @map_new %>
+
+<%= form_with model: [@map,@comment], local:true do |f| %>
+  <%= f.label :title, "タイトル" %>
+  <%= f.text_field :title %>
+  <%= f.label :comment, "コメント" %>
+  <%= f.text_area :comment %>
+  <%= f.label :image, "写真(なくても投稿できます）" %>
+  <%= f.attachment_field :image %>
+  <%= f.submit "送信" %>
+  <% end %>
 
