@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :maps
   has_many :comments
   has_many :favorites
+  
   attachment :profile_image
 
 end

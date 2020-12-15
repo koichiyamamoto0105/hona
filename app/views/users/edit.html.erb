@@ -32,7 +32,7 @@
 
 	<div class="field">
 		<%= f.label :国 %>
-		<%= f.country_select :country %>
+		<%= f.country_select :country, selected: "JP", format: :with_alpha2 %>
 	</div>
 
 	<div class="actions">
