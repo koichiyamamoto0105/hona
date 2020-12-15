@@ -3,9 +3,9 @@
 
 <h1><%= @map.spotname %></h1>
 
-   <td id="like_<%= @map.id %>">
+   <div id="like_<%= @map.id %>">
      <%= render "maps/favorite", map: @map %>
-	</td>
+	</div>
 
 	<h5>スポットの編集</h5>
 <td><%= link_to "編集", edit_map_path(@map) %></td>
