@@ -21,3 +21,10 @@
 </table>
 
 <%= link_to "マイページ編集", edit_user_path(@user.id) %>
+<%#= link_to "投稿一覧", edit_user_path(@user.id) %>
+<%= link_to "いいねしたスポット一覧", favorites_path %>
+
+<h3>いいねしたスポット一覧</h3>
+<% @favorite_list.each do |map| %>
+<%= link_to map.spotname, map_path(map.id) %>
+<% end %>
