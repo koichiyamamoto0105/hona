@@ -3,24 +3,28 @@
 
 <h1><%= @map.spotname %></h1>
 <div><%#= @map.avg_score_percentage %></div>
-<div><%#= @map.avg_score %>点</div>
-<div class="average-review-rating" data-score=<%= @avarage_star %>></div>
+<div><%#= @map.avg_score %></div>
+<div class="average-star-rate<%= @avarage_star %>"></div>
+<div><%= @average_star %>点</div>
+<div><%#= @comment.star.count %>件の評価</div>
 <script>
-  $('.average-review-rating').raty({
+  $('.average-star-rate<%= @avarage_star %>').raty({
+    size      : 25,
+    starOff   : '<%= asset_path('star-off.png') %>',
+    starOn    : '<%= asset_path('star-on.png') %>',
+    starHalf  : '<%= asset_path('star-half.png') %>',
     readOnly: true,
-    path: '/assets/',
-    score: function() {
-      return $(this).attr('data-score')
-    }
+    score: <%= @average_star %>,
   });
 </script>
+
+
    <% if user_signed_in? %>
    <div id="like_<%= @map.id %>">
      <%= render "maps/favorite", map: @map %>
 	</div>
 	  <% else %>
 	  <%= link_to "", new_user_session_path, class: "fa fa-heart-o" %>
-  <!--<i class="fa fa-heart-o"></i>-->
   <% end %>
 
 	<h5>スポットの編集</h5>
@@ -38,7 +42,7 @@
 <div><%= link_to @user.nickname, user_path(@user.id) %>さんが投稿しました。</div>
 <div><%= comment.created_at %></div>
 <script>
-      $('#star-rate<%= comment.id%>').raty({
+      $('#star-rate<%= comment.id %>').raty({
         size      : 25,
         starOff   : '<%= asset_path('star-off.png') %>',
         starOn    : '<%= asset_path('star-on.png') %>',
@@ -47,8 +51,12 @@
         score: <%= comment.star %>,
       });
     </script>
+    <td><%= link_to "削除", map_comments_path(comment), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
+
 
 <% end %>
+
+
 
 
 <h4>新規口コミ投稿</h4>
@@ -61,12 +69,11 @@
   <%= f.text_area :comment %>
   <%= f.label :image, "写真(なくても投稿できます）" %>
   <%= f.attachment_field :image %>
-  <%= f.submit "送信" %>
   <div class="form-group row" id="star">
     <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
     <%= f.hidden_field :star, id: :review_star %>
   </div>
-
+  <%= f.submit "送信" %>
   <!-- 評価javascript -->
   <script>
   $('#star').raty({
