@@ -1,5 +1,7 @@
 class MapsController < ApplicationController
 
+  before_action :authenticate_user!, except: [:top, :index, :show, :search]
+
   def top
     @all_ranks = Map.create_all_ranks
     # @map = Map.find(params[:map_id])

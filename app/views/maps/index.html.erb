@@ -4,7 +4,7 @@
   <input id="address" type="textbox" value="">
   <input type="button" value="検索" onclick="codeAddress()">
 
-  <!-- 地図情報を保存するフォーム -->
+  <% if user_signed_in? %><!-- 地図情報を保存するフォーム -->
   <%= form_with model: @map, local:true do |f| %>
   <!-- 検索値を隠しデータとして送信-->
   <input type="hidden" name="map[address]" id="hidden_address">
@@ -18,6 +18,9 @@
   <%#= f.label :image, "写真" %>
   <%#= f.attachment_field :image %>
   <%= f.submit "新たなスポットを登録する" %>
+  <% end %>
+  <% else %>
+  <div>スポット投稿は会員の方のみができます</div>
   <% end %>
 
 

@@ -14,10 +14,14 @@
     }
   });
 </script>
-
+   <% if user_signed_in? %>
    <div id="like_<%= @map.id %>">
      <%= render "maps/favorite", map: @map %>
 	</div>
+	  <% else %>
+	  <%= link_to "", new_user_session_path, class: "fa fa-heart-o" %>
+  <!--<i class="fa fa-heart-o"></i>-->
+  <% end %>
 
 	<h5>スポットの編集</h5>
 <td><%= link_to "編集", edit_map_path(@map) %></td>
@@ -49,7 +53,7 @@
 
 <h4>新規口コミ投稿</h4>
 <%#= render 'maps/post', map: @map_new %>
-
+<% if user_signed_in? %>
 <%= form_with model: [@map,@comment], local:true do |f| %>
   <%= f.label :title, "タイトル" %>
   <%= f.text_field :title %>
@@ -74,5 +78,8 @@
     half: false,
   });
   </script>
+  <% end %>
+   <% else %>
+  <div>口コミ投稿は会員の方のみができます</div>
   <% end %>
 
