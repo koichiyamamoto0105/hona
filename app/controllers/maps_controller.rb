@@ -1,6 +1,9 @@
 class MapsController < ApplicationController
 
   def top
+    @all_ranks = Map.create_all_ranks
+    # @map = Map.find(params[:map_id])
+    # @comment = @map.comments.find(params[:id])
   end
 
   def index
@@ -26,8 +29,11 @@ class MapsController < ApplicationController
     @user = @map.user
     @map_new = Map.new
     @comment = Comment.new
-    # @maps = Map.all
-    # @maps = Map.where(id: id)
+    if @comment.star.blank?
+      @average_star = 0
+    else
+      @avarage_star = @comment.star.avarage(:star).round(2)
+    end
   end
 
   def edit
@@ -51,6 +57,10 @@ class MapsController < ApplicationController
     redirect_to maps_path
   end
 
+  def search
+    @maps = Map.search(params[:search])
+  end
+
   private
 
   def user_params
@@ -60,5 +70,9 @@ class MapsController < ApplicationController
   def map_params
     params.require(:map).permit(:address, :latitude, :longitude, :title, :comment, :spotname, :image)
   end
+
+  # def comment_params
+  #   params.require(:comment).permit(:title, :comment, :image, :star)
+  # end
 
 end

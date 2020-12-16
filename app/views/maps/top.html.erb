@@ -1,3 +1,10 @@
 <h1>Topページ</h1>
 
 <%= link_to "gmap", maps_path %>
+
+<h3>いいねの多いスポット</h3>
+<% @all_ranks.each do |map| %>
+<div><%= link_to map.spotname, map_path(map.id) %></div>
+<div><%#= comment.comment %></div>
+<div><%#= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
+<% end %>

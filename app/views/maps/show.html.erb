@@ -2,6 +2,18 @@
 <td><%= link_to "口コミマップに戻る", maps_path %></td>
 
 <h1><%= @map.spotname %></h1>
+<div><%#= @map.avg_score_percentage %></div>
+<div><%#= @map.avg_score %>点</div>
+<div class="average-review-rating" data-score=<%= @avarage_star %>></div>
+<script>
+  $('.average-review-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
+</script>
 
    <div id="like_<%= @map.id %>">
      <%= render "maps/favorite", map: @map %>
@@ -15,10 +27,23 @@
 <% @map.comments.each do |comment| %>
 
 <div><%= comment.title %></div>
+ <p>評価 :<%= comment.star %>点</p>
+ <div id="star-rate<%= comment.id %>"></div>
 <div><%= comment.comment %></div>
-<tr><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></tr>
+<div><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
 <div><%= link_to @user.nickname, user_path(@user.id) %>さんが投稿しました。</div>
 <div><%= comment.created_at %></div>
+<script>
+      $('#star-rate<%= comment.id%>').raty({
+        size      : 25,
+        starOff   : '<%= asset_path('star-off.png') %>',
+        starOn    : '<%= asset_path('star-on.png') %>',
+        half      : false,
+        readOnly: true,
+        score: <%= comment.star %>,
+      });
+    </script>
+
 <% end %>
 
 
@@ -33,5 +58,21 @@
   <%= f.label :image, "写真(なくても投稿できます）" %>
   <%= f.attachment_field :image %>
   <%= f.submit "送信" %>
+  <div class="form-group row" id="star">
+    <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :star, id: :review_star %>
+  </div>
+
+  <!-- 評価javascript -->
+  <script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+
+    scoreName: 'comment[star]',
+    half: false,
+  });
+  </script>
   <% end %>
 
