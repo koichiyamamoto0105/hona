@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :maps do
     resource :favorites, only: [:create, :destroy]
     resource :comments
+    get :search, on: :collection
   end
+
+  get 'users/favorites' => 'users#favorites', as: 'favorites'
 
 end

@@ -1,0 +1,5 @@
+<ul><% @maps.each do |map| %>
+  <li>
+    <%= link_to map.spotname, map_path(map.id) %>
+  </li>
+  <% end %>
