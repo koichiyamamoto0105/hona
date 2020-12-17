@@ -1,0 +1,9 @@
+ja:
+   users:
+    show: &user_common
+     name: "名前"
+     image: "画像"
+     username: "ユーザーネーム"
+     country: "国"
+    edit:
+      <<: *user_common
