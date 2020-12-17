@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     @map = Map.find(params[:map_id])
@@ -8,7 +9,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to request.referer
     else
-      redirect_to root_path
+      render 'maps/show'
     end
   end
 

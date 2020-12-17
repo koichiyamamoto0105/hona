@@ -2,6 +2,18 @@
 <td><%= link_to "口コミマップに戻る", maps_path %></td>
 
 <h1><%= @map.spotname %></h1>
+<div class="average-star-rate<%= @avarage_star %>"></div>
+<div><%= @comments.count %>件の評価中<%= @average_star %>点</div>
+<script>
+  $('.average-star-rate<%= @avarage_star %>').raty({
+    size      : 25,
+    starOff   : '<%= asset_path('star-off.png') %>',
+    starOn    : '<%= asset_path('star-on.png') %>',
+    starHalf  : '<%= asset_path('star-half.png') %>',
+    readOnly: true,
+    score: <%= @average_star %>,
+  });
+</script>
 
 
    <% if user_signed_in? %>
@@ -36,12 +48,10 @@
         score: <%= comment.star %>,
       });
     </script>
-    <td><%= link_to "削除", map_comments_path(comment), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
+    <td><%= link_to "削除", map_comment_path(comment.map_id, comment.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
 
 
 <% end %>
-
-
 
 
 <h4>新規口コミ投稿</h4>

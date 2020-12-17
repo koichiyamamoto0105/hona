@@ -12,9 +12,6 @@ class Map < ApplicationRecord
   geocoded_by :address
   before_validation :geocode
 
-  attachment :image
-
-
   def favorited_by?(user)
    favorites.where(user_id: user.id).exists?
   end
@@ -23,9 +20,9 @@ class Map < ApplicationRecord
     Map.find(Favorite.group(:map_id).order('count(map_id) desc').limit(3).pluck(:map_id))
   end
 
-  def self.search(search)
-    return Map.all unless search
-    Map.where(['content LIKE ?', "%#{search}%"])
-  end
+  # def self.search(search)
+  #   return Map.all unless search
+  #   Map.where(['content LIKE ?', "%#{search}%"])
+  # end
 
 end

@@ -1,6 +1,7 @@
 class MapsController < ApplicationController
 
   before_action :authenticate_user!, except: [:top, :index, :show, :search]
+  before_action :ensure_correct_user, only: [:update, :edit]
 
   def top
     @all_ranks = Map.create_all_ranks
@@ -36,17 +37,17 @@ class MapsController < ApplicationController
     # else
     #   @avarage_star = @comment.star.avarage(:star).round(2)
     # end
-    # @comments = @map.comments
-    # @stars = @comments.pluck(:star)
-    # @average_star = 0
-    # @stars.each do |star|
-    #   @average_star += star
-    # end
-    # begin
-    # @average_star = @average_star / @stars.length
-    # rescue
-    #   @average_star = 0
-    # end
+    @comments = @map.comments
+    @stars = @comments.pluck(:star)
+    @average_star = 0
+    @stars.each do |star|
+      @average_star += star
+    end
+    begin
+    @average_star = @average_star / @stars.length
+    rescue
+      @average_star = 0
+    end
   end
 
   def edit
@@ -81,11 +82,13 @@ class MapsController < ApplicationController
   end
 
   def map_params
-    params.require(:map).permit(:address, :latitude, :longitude, :title, :comment, :spotname, :image)
+    params.require(:map).permit(:address, :latitude, :longitude, :spotname)
   end
 
-  # def comment_params
-  #   params.require(:comment).permit(:title, :comment, :image, :star)
-  # end
-
+  def ensure_correct_user
+    @book = Book.find(params[:id])
+    unless @book.user == current_user
+      redirect_to books_path
+    end
+  end
 end
