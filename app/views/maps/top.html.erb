@@ -5,6 +5,16 @@
 <h3>いいねの多いスポット</h3>
 <% @all_ranks.each do |map| %>
 <div><%= link_to map.spotname, map_path(map.id) %></div>
-<div><%#= comment.comment %></div>
-<div><%#= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
+<div class="average-star-rating<%= map.comments.average_star %>"></div>
+<script>
+  $('.average-star-rating<%= map.comments.average_star %>').raty({
+    size      : 25,
+    starOff   : '<%= asset_path('star-off.png') %>',
+    starOn    : '<%= asset_path('star-on.png') %>',
+    starHalf  : '<%= asset_path('star-half.png') %>',
+    readOnly: true,
+    score: <%= map.comments.average_star %>,
+  });
+</script>
+
 <% end %>

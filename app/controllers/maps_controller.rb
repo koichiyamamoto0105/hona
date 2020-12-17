@@ -5,6 +5,8 @@ class MapsController < ApplicationController
 
   def top
     @all_ranks = Map.create_all_ranks
+    # @stars = @all_ranks.comments.avarage_star
+
     # @map = Map.find(params[:map_id])
     # @comment = @map.comments.find(params[:id])
   end
@@ -29,9 +31,10 @@ class MapsController < ApplicationController
 
   def show
     @map = Map.find(params[:id])
-    @user = @map.user
+    # @user = @map.comments.user
     @map_new = Map.new
     @comment = Comment.new
+    # @comment.user_id = current_user.id
     # if @comment.star.blank?
     #   @average_star = 0
     # else

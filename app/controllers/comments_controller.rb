@@ -6,8 +6,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.map_id = @map.id
     @comment.user_id = current_user.id
+    # @user.user_id = current_user.id
+    # @user = User.find(params[:id])
     if @comment.save
-      redirect_to request.referer
+      # redirect_to request.referer
+      redirect_to map_path(@map.id)
     else
       render 'maps/show'
     end
@@ -30,5 +33,9 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:title, :comment, :image, :star)
   end
+
+  # def user_params
+  #   params.require(:user).permit(:name, :nickname, :profile_image, :country)
+  # end
 
 end

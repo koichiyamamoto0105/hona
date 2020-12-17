@@ -3,7 +3,8 @@
 
 <h1><%= @map.spotname %></h1>
 <div class="average-star-rate<%= @avarage_star %>"></div>
-<div><%= @comments.count %>件の評価中<%= @average_star %>点</div>
+<div><% if @comments.present? %>
+<%= @comments.count %>件の評価中<%= @average_star %>点</div>
 <script>
   $('.average-star-rate<%= @avarage_star %>').raty({
     size      : 25,
@@ -14,6 +15,9 @@
     score: <%= @average_star %>,
   });
 </script>
+<% else%>
+<p>まだ口コミはありません</p>
+<% end %>
 
 
    <% if user_signed_in? %>
@@ -31,12 +35,12 @@
 
 <% @map.comments.each do |comment| %>
 
-<div><%= comment.title %></div>
+<h3><%= comment.title %></h3>
  <p>評価 :<%= comment.star %>点</p>
  <div id="star-rate<%= comment.id %>"></div>
 <div><%= comment.comment %></div>
 <div><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
-<div><%= link_to @user.nickname, user_path(@user.id) %>さんが投稿しました。</div>
+<div><%#= link_to comment.user_id.nickname, user_path(@user.id) %>さんが投稿しました。</div>
 <div><%= comment.created_at %></div>
 <script>
       $('#star-rate<%= comment.id %>').raty({

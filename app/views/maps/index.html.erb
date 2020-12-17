@@ -9,7 +9,7 @@
   <!-- 検索値を隠しデータとして送信-->
   <input type="hidden" name="map[address]" id="hidden_address">
   <%= f.label :spotname, "スポット名" %>
-  <%= f.text_field :spotname %>
+  <%= f.text_field :spotname, readonly: true %>
   <%#= form_with model: @comment, url: map_comments_path, method: :get, local:true do |f| %>
   <%#= f.label :title, "タイトル" %>
   <%#= f.text_field :title %>
