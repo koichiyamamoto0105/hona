@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-
-  root 'maps#top'
   devise_for :users
-  resources :users
-  resources :maps do
-    resource :favorites, only: [:create, :destroy]
-    resource :comments
-    get :search, on: :collection
+   scope '(:locale)', locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
+    root 'maps#top'
+
+    resources :users
+    resources :maps do
+     # get :search, on: :collection
+     resource :favorites, only: [:create, :destroy]
+     resources :comments, only: [:create, :destroy]
+    end
+
+    get 'users/favorites' => 'users#favorites', as: 'favorites'
+
   end
-
-  get 'users/favorites' => 'users#favorites', as: 'favorites'
-
 end
