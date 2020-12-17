@@ -2,11 +2,9 @@
 <td><%= link_to "口コミマップに戻る", maps_path %></td>
 
 <h1><%= @map.spotname %></h1>
-<div><%#= @map.avg_score_percentage %></div>
-<div><%#= @map.avg_score %></div>
 <div class="average-star-rate<%= @avarage_star %>"></div>
 <div><%= @average_star %>点</div>
-<div><%#= @comment.star.count %>件の評価</div>
+<div><%= @comments.count %>件の評価</div>
 <script>
   $('.average-star-rate<%= @avarage_star %>').raty({
     size      : 25,

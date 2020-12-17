@@ -42,8 +42,11 @@ class MapsController < ApplicationController
     @stars.each do |star|
       @average_star += star
     end
+    begin
     @average_star = @average_star / @stars.length
-    
+    rescue
+      @average_star = 0
+    end
   end
 
   def edit
