@@ -36,17 +36,17 @@ class MapsController < ApplicationController
     # else
     #   @avarage_star = @comment.star.avarage(:star).round(2)
     # end
-    @comments = @map.comments
-    @stars = @comments.pluck(:star)
-    @average_star = 0
-    @stars.each do |star|
-      @average_star += star
-    end
-    begin
-    @average_star = @average_star / @stars.length
-    rescue
-      @average_star = 0
-    end
+    # @comments = @map.comments
+    # @stars = @comments.pluck(:star)
+    # @average_star = 0
+    # @stars.each do |star|
+    #   @average_star += star
+    # end
+    # begin
+    # @average_star = @average_star / @stars.length
+    # rescue
+    #   @average_star = 0
+    # end
   end
 
   def edit
