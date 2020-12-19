@@ -1,0 +1,46 @@
+    	<!-- エラーメッセージ表示-->
+      <%= render 'layouts/error_messages', model: @comment %>
+
+<% if user_signed_in? %>
+<%= form_with model: [map,comment], local:true do |f| %>
+  <div class="field row">
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+    <% if f.object.errors.include?(:title) %>
+     <p style="color: red;"><%= f.object.errors.full_messages_for(:title).first %>
+    <% end %>
+  </div>
+  <div class="field row">
+    <%= f.label :comment, "コメント" %>
+    <%= f.text_area :comment %>
+    <% if f.object.errors.include?(:comment) %>
+     <p style="color: red;"><%= f.object.errors.full_messages_for(:comment).first %>
+    <% end %>
+  </div>
+  <div class="field row">
+    <%= f.label :image, "写真(なくても投稿できます）" %>
+    <%= f.attachment_field :image %>
+  </div></br>
+  <div class="field row" id="star">
+    <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
+    <%= f.hidden_field :star, id: :review_star %>
+    <% if f.object.errors.include?(:star) %>
+     <p style="color: red;"><%= f.object.errors.full_messages_for(:star).first %>
+    <% end %>
+  </div>
+  <%= f.submit "口コミを投稿" %>
+  <!-- 評価javascript -->
+  <script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+
+    scoreName: 'comment[star]',
+    half: false,
+  });
+  </script>
+  <% end %>
+   <% else %>
+  <div>口コミ投稿は会員の方のみができます</div>
+  <% end %>

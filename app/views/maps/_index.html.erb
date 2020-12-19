@@ -1,0 +1,7 @@
+ <tbody>
+    <% maps.each do |map| %>
+      <tr>
+        <td><%= link_to map.spotname, map_path(map), class: "map_#{map.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>

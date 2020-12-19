@@ -5,20 +5,14 @@ class MapsController < ApplicationController
 
   def top
     @all_ranks = Map.create_all_ranks
-    # @stars = @all_ranks.comments.avarage_star
-
-    # @map = Map.find(params[:map_id])
-    # @comment = @map.comments.find(params[:id])
   end
 
   def index
     @map = Map.new
-    # @user = @map.user
     @maps = Map.all
   end
 
   def create
-    # byebug
     @map = Map.new(map_params)
     @map.user_id = current_user.id
     if @map.save
@@ -31,16 +25,11 @@ class MapsController < ApplicationController
 
   def show
     @map = Map.find(params[:id])
-    # @user = @map.comments.user
     @map_new = Map.new
     @comment = Comment.new
-    # @comment.user_id = current_user.id
-    # if @comment.star.blank?
-    #   @average_star = 0
-    # else
-    #   @avarage_star = @comment.star.avarage(:star).round(2)
-    # end
-    @comments = @map.comments
+    @comments = @map.comments.page(params[:page]).per(3)
+    # @comments = @map.comments
+    # @comments = @comments.page(params[:page]).per(3)
     @stars = @comments.pluck(:star)
     @average_star = 0
     @stars.each do |star|
@@ -59,13 +48,11 @@ class MapsController < ApplicationController
 
   def update
     @map = Map.find(params[:id])
-    # if @map.user_id = current_user.id
     if @map.update(map_params)
       redirect_to maps_path
     else
       render :edit
     end
-    # end
   end
 
   def destroy

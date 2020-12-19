@@ -6,12 +6,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.map_id = @map.id
     @comment.user_id = current_user.id
-    # @user.user_id = current_user.id
-    # @user = User.find(params[:id])
     if @comment.save
-      # redirect_to request.referer
       redirect_to map_path(@map.id)
     else
+      # redirect_to request.referer
+      @comments = @map.comments.page(params[:page]).per(3)
       render 'maps/show'
     end
   end

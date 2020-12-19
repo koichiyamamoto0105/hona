@@ -13,40 +13,49 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
-// @import "bulma";
-
-header {
-  width: 100vw;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  background-color: #ffffff;
-  * {
-    position: relative;
-    z-index: 100;
-  }
-  // .header-content {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   width: 960px;
-  //   margin: 0 auto;
-//     .logo {
-//       padding: 10px 20px;
-//       font-family: "Century";
-//       font-size: 20px;
-//       text-decoration: none;
-//     }
-  // }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+header {
+  border: solid black;
+  border-top-width: 5px;
+  border-right-width: 5px;
+  border-left-width: 5px;
+  width: 100%;
+  position: fixed;
+  background-color: #fff;
+
+  .header-content {
+      text-align: center;
+ }
+}
+
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+
+
+
 main {
-  padding: 100px 0;
+  padding: 300px 0;
 }
 
 #map {
-  height: 400px;
+  height: 500px;
 }
 .gmap input {
   border: 1px solid #000;
@@ -54,4 +63,14 @@ main {
 
 .field_with_errors {
   display: inline;
+}
+
+.commentnew {
+  position: fixed;
+}
+
+.search-form {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
 }

@@ -1,5 +1,5 @@
 <div class="gmap">
-  <h2>gmap</h2>
+  <h2>スポット検索・投稿</h2>
 
   <input id="address" type="textbox" value="">
   <input type="button" value="検索" onclick="codeAddress()">
@@ -10,13 +10,6 @@
   <input type="hidden" name="map[address]" id="hidden_address">
   <%= f.label :spotname, "スポット名" %>
   <%= f.text_field :spotname, readonly: true %>
-  <%#= form_with model: @comment, url: map_comments_path, method: :get, local:true do |f| %>
-  <%#= f.label :title, "タイトル" %>
-  <%#= f.text_field :title %>
-  <%#= f.label :comment, "コメント" %>
-  <%#= f.text_area :comment %>
-  <%#= f.label :image, "写真" %>
-  <%#= f.attachment_field :image %>
   <%= f.submit "新たなスポットを登録する" %>
   <% end %>
   <% else %>
@@ -25,10 +18,6 @@
 
 
   <div id='map'>
-  </div>
-  <!--オススメで表示させる？-->
-  <%#= render @maps %>
-</div>
 
 <script>
   let map;

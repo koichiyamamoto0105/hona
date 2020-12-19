@@ -2,8 +2,10 @@ ja:
    users:
     show: &user_common
      name: "名前"
-     image: "画像"
+     image: "プロフィール写真"
      username: "ユーザーネーム"
-     country: "国"
+     country: "居住国"
+     edittitle: "マイページの編集"
     edit:
       <<: *user_common
+

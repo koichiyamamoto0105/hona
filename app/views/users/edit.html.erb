@@ -1,23 +1,17 @@
-<h3>マイページ編集</h3>
+<h3><%= t('.edittitle') %></h3>
 
 <%= form_with model:@user, local: true do |f| %>
 
 	<!-- エラーメッセージ表示-->
-	<% if @user.errors.any? %>
-		<div id="error_explanation">
-			<h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
-			<ul>
-				<% @user.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-	<!-- エラーメッセージ表示-->
+<%= render 'layouts/error_messages', model: f.object %>
 
 	<div class="field">
-		<%= t('.name') %>
+	<%= f.label :name %>
 		<%= f.text_field :name, class: "name" %>
+		<% if f.object.errors.include?(:name) %>
+     <p style="color: red;"><%= f.object.errors.full_messages_for(:name).first %>
+     ("#{t('.name')}")
+    <% end %>
 	</div>
 
 	<div class="field">
@@ -26,12 +20,15 @@
 	</div>
 
 	<div class="field">
-		<%= f.label "ユーザーネーム" %>
+		<%= t('.username') %>
 		<%= f.text_field :nickname, class: "name" %>
+			<% if f.object.errors.include?(:nickname) %>
+     <p style="color: red;"><%= f.object.errors.full_messages_for(:nickname).first %>
+    <% end %>
 	</div>
 
 	<div class="field">
-		<%= f.label :国 %>
+		<%= t('.country') %>
 		<%= f.country_select :country, selected: "JP", format: :with_alpha2 %>
 	</div>
 

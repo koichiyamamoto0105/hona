@@ -30,4 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  users:
+    show: &user_common
+     name: "Name"
+     image: "ProfileImage"
+     username: "Nickname"
+     country: "Country"
+    edit:
+      <<: *user_common
