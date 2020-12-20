@@ -1,20 +1,19 @@
-    	<!-- エラーメッセージ表示-->
-      <%= render 'layouts/error_messages', model: @comment %>
+
 
 <% if user_signed_in? %>
 <%= form_with model: [map,comment], local:true do |f| %>
   <div class="field row">
     <%= f.label :title, "タイトル" %>
     <%= f.text_field :title %>
-    <% if f.object.errors.include?(:title) %>
-     <p style="color: red;"><%= f.object.errors.full_messages_for(:title).first %>
+    <% if @comment.errors.include?(:title) %>
+     <p style="color: red;"><%= @comment.errors.full_messages_for(:title).first %>
     <% end %>
   </div>
   <div class="field row">
     <%= f.label :comment, "コメント" %>
     <%= f.text_area :comment %>
-    <% if f.object.errors.include?(:comment) %>
-     <p style="color: red;"><%= f.object.errors.full_messages_for(:comment).first %>
+    <% if @comment.errors.include?(:comment) %>
+     <p style="color: red;"><%= @comment.errors.full_messages_for(:comment).first %>
     <% end %>
   </div>
   <div class="field row">
@@ -24,8 +23,8 @@
   <div class="field row" id="star">
     <%= f.label :star,'評価 ', class:'col-md-3 col-form-label' %>
     <%= f.hidden_field :star, id: :review_star %>
-    <% if f.object.errors.include?(:star) %>
-     <p style="color: red;"><%= f.object.errors.full_messages_for(:star).first %>
+    <% if @comment.errors.include?(:star) %>
+     <p style="color: red;"><%= @comment.errors.full_messages_for(:star).first %>
     <% end %>
   </div>
   <%= f.submit "口コミを投稿" %>
