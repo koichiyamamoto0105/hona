@@ -24,7 +24,7 @@
         </tr>
         <tr>
           <td>国</td>
-          <td><%= f.country_select :country %></td>
+          <td><%= f.country_select :country, selected: "JP", format: :with_alpha2 %></td>
         </tr>
         <tr>
           <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
