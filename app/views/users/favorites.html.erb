@@ -1,4 +1,10 @@
 <h3>いいねしたスポット一覧</h3>
+<table>
+  <tbody>
 <% @favorite_list.each do |map| %>
-<%= link_to map.spotname, map_path(map.id) %>
+  <tr>
+  <td><%= link_to map.spotname, map_path(map.id) %></td>
+  </tr>
+  </tbody>
 <% end %>
+</table>

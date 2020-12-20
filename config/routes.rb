@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     root 'maps#top'
 
     resources :users do
-      get '/favorites' => 'users#favorites', as: 'favorites'
+        member do
+            get '/favorites' => 'users#favorites', as: 'favorites'
+        end
     end
     resources :maps do
      resource :favorites, only: [:create, :destroy, :index]

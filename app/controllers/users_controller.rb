@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    favorites = Favorite.where(user_id: current_user.id).pluck(:map_id)  # ログイン中のユーザーのいいねのmap_idカラムを取得
+    favorites = Favorite.where(user_id: current_user.id).pluck(:map_id)
     @favorite_list = Map.find(favorites)
   end
 
@@ -22,8 +22,8 @@ class UsersController < ApplicationController
   end
 
   def favorites
-    favorites = Favorite.where(user_id: current_user.id).pluck(:map_id)  # ログイン中のユーザーのいいねのmap_idカラムを取得
-    @favorite_list = Map.find(favorites)
+    @user = User.find_by(id: params[:user_id])
+    @favorite_list = @user.favorited_maps
   end
 
   private
