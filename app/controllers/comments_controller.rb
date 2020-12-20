@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to map_path(@map.id)
     else
-      # redirect_to request.referer
       @comments = @map.comments.page(params[:page]).per(3)
       render 'maps/show'
     end
@@ -29,12 +28,9 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def comment_params
     params.require(:comment).permit(:title, :comment, :image, :star)
   end
-
-  # def user_params
-  #   params.require(:user).permit(:name, :nickname, :profile_image, :country)
-  # end
 
 end
