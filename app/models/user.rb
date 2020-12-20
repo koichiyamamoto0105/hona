@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :maps
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorited_maps, through: :favorites, source: :map
 
   attachment :profile_image
 
