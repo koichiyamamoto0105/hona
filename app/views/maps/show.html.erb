@@ -1,24 +1,21 @@
 <div class="container">
   <div class="row">
 
-
-
     <div class='col-xs-9'>
         <h1><%= @map.spotname %></h1>
           <div class="average-star-rate<%= @avarage_star %>"></div>
-           <div><% if @comments.present? %>
-            <%= @comments.count %>件の評価中<%= @average_star %>点</div>
+           <% if @comments.present? %>
+            <div><%= @comments.count %>件の評価中<%= @average_star %>点</div>
          <script>
          $('.average-star-rate<%= @avarage_star %>').raty({
            size      : 25,
            starOff   : '<%= asset_path('star-off.png') %>',
            starOn    : '<%= asset_path('star-on.png') %>',
-           starHalf  : '<%= asset_path('star-half.png') %>',
            readOnly: true,
            score: <%= @average_star %>,
           });
          </script>
-           <% else%>
+           <% else %>
           <p>まだ口コミはありません</p>
            <% end %>
 
@@ -29,6 +26,15 @@
           	</div>
           	  <% else %>
           	  <%= link_to "", new_user_session_path, class: "fa fa-heart-o" %>
+            <% end %>
+
+            <!--<%# if @image.present? %>-->
+            <!--<p>口コミ投稿者の写真</p>-->
+            <!--<%# else %>-->
+            <!--<p>写真はまだありません</p>-->
+            <!--<%# end %>-->
+            <% @map.comments.each do |comment| %>
+            <div><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
             <% end %>
 
           　<!--管理者のみ可能にしたい-->
@@ -56,8 +62,10 @@
                     score: <%= comment.star %>,
                   });
                 </script>
+                <% if user_signed_in? %>
                 <% if comment.user_id == current_user.id %>
                 <td><%= link_to "削除", map_comment_path(comment.map_id, comment.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
+                <% end %>
                 <% end %>
             <% end %>
 
@@ -71,6 +79,9 @@
         <h4>新規口コミ投稿</h4>
         <%= render 'maps/form', map: @map, comment: Comment.new %>
         <h6><%= link_to "口コミマップに戻る", maps_path %></h6>
+        <% unless user_signed_in? %>
+        <h6><%= link_to "ログインして口コミを投稿する", new_user_session_path%></h6>
+        <% end %>
           </div>
         </div>
     </div>

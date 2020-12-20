@@ -5,16 +5,26 @@
 <h3>いいねの多いスポット</h3>
 <% @all_ranks.each do |map| %>
 <div><%= link_to map.spotname, map_path(map.id) %></div>
-<div class="average-star-rating<%= map.comments.average_star %>"></div>
+  <i class="fa fa-heart"></i>
+    <%= map.favorites.count %>
+<% if map.comments.present? %>
+<div id="average-star-rating<%= map.id %>"></div>
 <script>
-  $('.average-star-rating<%= map.comments.average_star %>').raty({
+  $('#average-star-rating<%= map.id %>').raty({
     size      : 25,
     starOff   : '<%= asset_path('star-off.png') %>',
     starOn    : '<%= asset_path('star-on.png') %>',
-    starHalf  : '<%= asset_path('star-half.png') %>',
     readOnly: true,
     score: <%= map.comments.average_star %>,
   });
 </script>
+ <% else%>
+  <p>まだ口コミはありません</p>
+  <% end %>
+
+
+<% map.comments.each do |comment| %>
+<%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %>
+<% end %>
 
 <% end %>
