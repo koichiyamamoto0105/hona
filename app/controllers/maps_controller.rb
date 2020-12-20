@@ -28,8 +28,6 @@ class MapsController < ApplicationController
     @map_new = Map.new
     @comment = Comment.new
     @comments = @map.comments.page(params[:page]).per(3)
-    # @comments = @map.comments
-    # @comments = @comments.page(params[:page]).per(3)
     @stars = @comments.pluck(:star)
     @average_star = 0
     @stars.each do |star|
