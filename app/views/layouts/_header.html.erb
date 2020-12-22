@@ -1,33 +1,38 @@
  <header>
 
+<% I18n.available_locales.reject{|l| l == I18n.locale}.each do |locale| %>
+  <%= link_to(locale, i18n_url_for(params.merge(locale: locale).permit!)) %>
+<% end %>
+
+
    <% if user_signed_in? %>
      <nav>
        <ul class="nav-list">
-          <li class="nav-list-item"><%= link_to ' 口コミマップ', maps_path, class: "btn btn-default" %></li>
-          <li class="nav-list-item"><%= link_to ' マイページ', user_path(current_user), class: "btn btn-default" %></li>
-          <li class="nav-list-item"><%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-default" %></li>
+          <li class="nav-list-item"><%= link_to  t('.map'), maps_path, class: "btn btn-default" %></li>
+          <li class="nav-list-item"><%= link_to t('.mypage'), user_path(current_user), class: "btn btn-default" %></li>
+          <li class="nav-list-item"><%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: "btn btn-default" %></li>
         </ul>
       </nav>
 
         <% else %>
       <nav>
        <ul class="nav-list">
-        　<li class="nav-list-item"><%= link_to ' 口コミマップ', maps_path, class: "btn btn-default" %></li>
-          <li class="nav-list-item"><%= link_to ' ログイン', new_user_session_path, class: "btn btn-default"%></li>
+        　<li class="nav-list-item"><%= link_to t('.map'), maps_path, class: "btn btn-default" %></li>
+          <li class="nav-list-item"><%= link_to t('.login'), new_user_session_path, class: "btn btn-default"%></li>
         </ul>
       </nav>
   <% end %>
 
     <div class="header-content">
-      <%= link_to image_tag("logo.png", style: "width: 200px; height: 200px;"), root_path, class: "logo" %>
+      <%= link_to image_tag("logo.png", style: "width: 100px; height: 100px;"), root_path, class: "logo" %>
       </div>
 
        <div class="search-form">
            <%= form_with url: search_path, method: :get, local: true do |f| %>
-            <%= f.label :model, "スポットを探す" %>
+            <%= f.label :model, t('.serachspot') %>
             <%= f.text_field :content %>
-            <%= f.select :method, options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
-            <%= f.submit '検索' %>
+            <%= f.select :method, options_for_select({  t('.exact') => "perfect",  t('.forward') => "forward",  t('.backward') => "backward",  t('.partial') => "partial" }) %>
+            <%= f.submit t('.searchbutton') %>
            <% end %>
        </div>
 

@@ -1,11 +1,11 @@
 ja:
    users:
     show: &user_common
-     name: "名前"
-     image: "プロフィール写真"
      username: "ユーザーネーム"
      country: "居住国"
      edittitle: "マイページの編集"
+     likedspots: "いいねしたスポット一覧"
+     mypagetitle: "マイページ"
     edit:
       <<: *user_common
 

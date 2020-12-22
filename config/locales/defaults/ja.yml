@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    # 追加
+    attributes:
+      user:
+        name: "名前"
+        profile_image: "プロフィール写真"
+        nickname: "ユーザーネーム"
+        country: "居住国"
+
+

@@ -1,0 +1,16 @@
+en:
+   layouts:
+      header:
+       map: "Spotmap"
+       mypage: "My page"
+       logout: "Logout"
+       login: "Log in"
+       serachspot: "Search Spotname"
+       searchbutton: "Search"
+       exact: "Exact match"
+       forward: "Forward match"
+       backward: "Backward match"
+       partial: "Partial match"
+
+      error_messages:
+       errormessages: "prohibited this obj from being saved。"

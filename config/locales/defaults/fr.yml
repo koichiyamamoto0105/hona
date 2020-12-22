@@ -1,0 +1,9 @@
+fr:
+  activerecord:
+    # 追加
+    attributes:
+      user:
+        name: "Nom"
+        profile_image: "Image de profile"
+        nickname: "surnom"
+        country: "Pays"

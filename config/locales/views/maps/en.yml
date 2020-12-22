@@ -1,4 +1,6 @@
 en:
-  maps:
-   top
-
+   maps:
+     top:
+      information: "Search Spots on Map"
+      welcome: "Welocome to Hona!"
+      mostliked: "Popular Spots"

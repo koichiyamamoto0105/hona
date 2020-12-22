@@ -1,0 +1,10 @@
+fr:
+   users:
+    show: &user_common
+     username: "surnom"
+     country: "Pays"
+     edittitle: "Éditer profile"
+     likedspots: "Places favories"
+     mypagetitle: "Ma page"
+    edit:
+      <<: *user_common

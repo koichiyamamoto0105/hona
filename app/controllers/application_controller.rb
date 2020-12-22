@@ -1,17 +1,18 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  protect_from_forgery with: :exception
   before_action :set_locale
 
   def set_locale
-   I18n.locale = locale
+    I18n.locale = locale
   end
 
   def locale
-   @locale ||= params[:locale] ||= I18n.default_locale
+    @locale ||= params[:locale] ||= I18n.default_locale
   end
 
-  def default_url_options(options={})
-   options.merge(locale: locale)
+  def default_url_options(options = {})
+    options.merge(locale: locale)
   end
 
   protected

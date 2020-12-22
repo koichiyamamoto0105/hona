@@ -1,0 +1,16 @@
+fr:
+   layouts:
+      header:
+       map: "Carte"
+       mypage: "Ma mage"
+       logout: "Se déconnecter"
+       login: "Se connecter"
+       serachspot: "Chercher les places"
+       searchbutton: "Recherche"
+       exact: "Accord parfait"
+       forward: "Accord en avant"
+       backward: "Accord en arrière"
+       partial: "Accord partiel"
+
+      error_messages:
+       errormessages: "erreur(s)"

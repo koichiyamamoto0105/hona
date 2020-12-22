@@ -1,4 +1,16 @@
 ja:
    layouts:
+      header:
+       map: "口コミマップ"
+       mypage: "マイページ"
+       logout: "ログアウト"
+       login: "ログイン"
+       serachspot: "スポットを探す"
+       searchbutton: "検索"
+       exact: "完全一致"
+       forward: "前方一致"
+       backward: "後方一致"
+       partial: "部分一致"
+
       error_messages:
        errormessages: "件に誤りがあります。"
