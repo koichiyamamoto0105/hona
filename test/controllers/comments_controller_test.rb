@@ -20,5 +20,4 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     get comments_update_url
     assert_response :success
   end
-
 end
