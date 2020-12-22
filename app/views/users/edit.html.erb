@@ -10,17 +10,16 @@
 		<%= f.text_field :name, class: "name" %>
 		<% if f.object.errors.include?(:name) %>
      <p style="color: red;"><%= f.object.errors.full_messages_for(:name).first %>
-     ("#{t('.name')}")
     <% end %>
 	</div>
 
 	<div class="field">
-		<%= t('.image') %>
+		<%= f.label :profile_image %>
 		<%= f.attachment_field :profile_image %>
 	</div>
 
 	<div class="field">
-		<%= t('.username') %>
+		<%= f.label :nickname %>
 		<%= f.text_field :nickname, class: "name" %>
 			<% if f.object.errors.include?(:nickname) %>
      <p style="color: red;"><%= f.object.errors.full_messages_for(:nickname).first %>
@@ -28,7 +27,7 @@
 	</div>
 
 	<div class="field">
-		<%= t('.country') %>
+		<%= f.label :country %>
 		<%= f.country_select :country, selected: "JP", format: :with_alpha2 %>
 	</div>
 
