@@ -1,8 +1,8 @@
-<h1>Topページ</h1>
+<h1><%= t('.welcome') %></h1>
 
-<%= link_to t('.information'), maps_path %>
+<h3><%= link_to t('.information'), maps_path %></h3>
 
-<h3>いいねの多いスポット</h3>
+<h3><%= t('.mostliked') %></h3>
 <% @all_ranks.each do |map| %>
 <div><%= link_to map.spotname, map_path(map.id) %></div>
   <i class="fa fa-heart"></i>
