@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:update, :edit]
 
-
   def show
     @user = User.find(params[:id])
     favorites = Favorite.where(user_id: current_user.id).pluck(:map_id)
@@ -27,6 +26,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :nickname, :profile_image, :country)
   end
@@ -37,5 +37,4 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
-
 end

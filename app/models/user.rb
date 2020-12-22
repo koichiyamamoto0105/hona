@@ -11,14 +11,12 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
-  validates :name, length: {maximum: 20, minimum: 2}
+  validates :name, length: { maximum: 20, minimum: 2 }
   validates :nickname, presence: true
   validates :country, presence: true
 
-
- def country_name
-   c = ISO3166::Country[self.country]
-   return c.translations[I18n.locale.to_s] || c.name
- end
-
+  def country_name
+    c = ISO3166::Country[country]
+    c.translations[I18n.locale.to_s] || c.name
+  end
 end

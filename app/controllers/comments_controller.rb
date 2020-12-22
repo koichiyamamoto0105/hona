@@ -22,9 +22,9 @@ class CommentsController < ApplicationController
 
   def destroy
     @map = Map.find(params[:map_id])
-  	comment = @map.comments.find(params[:id])
-		comment.destroy
-		redirect_to request.referer
+    comment = @map.comments.find(params[:id])
+    comment.destroy
+    redirect_to request.referer
   end
 
   private
@@ -32,5 +32,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:title, :comment, :image, :star)
   end
-
 end

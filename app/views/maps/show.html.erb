@@ -3,6 +3,7 @@
 
     <div class='col-xs-9'>
         <h1><%= @map.spotname %></h1>
+        <%#= render_with_hashtags(@map.caption) %>
           <div class="average-star-rate<%= @avarage_star %>"></div>
            <% if @comments.present? %>
             <div><%= @comments.count %>件の評価中<%= @average_star %>点</div>
@@ -51,6 +52,7 @@
             <div><%= comment.comment %></div>
             <div><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
             <div><%= link_to comment.user.nickname, user_path(comment.user.id) %>さんが投稿しました。</div>
+            <div><%= comment.user.country_name %></div>
             <div><%= comment.created_at %></div>
             <script>
                   $('#star-rate<%= comment.id %>').raty({
@@ -67,7 +69,7 @@
                 <td><%= link_to "削除", map_comment_path(comment.map_id, comment.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
                 <% end %>
                 <% end %>
-            <% end %>
+            <% end %></br>
 
             <%= paginate @comments %>
 
