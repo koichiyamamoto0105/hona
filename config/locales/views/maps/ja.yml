@@ -4,3 +4,20 @@ ja:
       information: "スポットを地図から探す"
       welcome: "Hona!へようこそ！！"
       mostliked: "いいねの多いスポット"
+     index:
+      searchandpost: "スポット検索・投稿"
+      searchbutton: "検索"
+      registration: "新たなスポットを登録する"
+      warning: "スポット投稿は会員の方のみができます"
+     show:
+      comment: "まだ口コミはありません"
+      newcomment: "新規口コミ投稿"
+      backtomap: "口コミマップに戻る"
+      logintocomment: "ログインして口コミを投稿する"
+      hascommented: "さんが投稿しました"
+      delete: "削除"
+      areyousure: "本当に削除してもよろしいですか？"
+      postedon: "投稿日： "
+     form:
+      commentonlymember: "口コミ投稿は会員の方のみができます"
+      submitcomment: "口コミを投稿"

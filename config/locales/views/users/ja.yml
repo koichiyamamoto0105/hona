@@ -8,4 +8,7 @@ ja:
      mypagetitle: "マイページ"
     edit:
       <<: *user_common
+    favorites:
+     favoritesindex: "いいねしたスポット一覧"
+
 

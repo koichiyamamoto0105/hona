@@ -7,3 +7,13 @@ fr:
         profile_image: "Image de profile"
         nickname: "surnom"
         country: "Pays"
+        email: "Adresse électronique"
+        password: "Mot de passe"
+        remember_me: "Maintenir ma session ouverte"
+      map:
+        spotname: "L'endroit"
+      comment:
+        title: "Title"
+        comment: "Commentaire"
+        image: "Image(pas nécessaire)"
+        star: "Estimation"

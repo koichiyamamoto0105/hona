@@ -7,5 +7,15 @@ ja:
         profile_image: "プロフィール写真"
         nickname: "ユーザーネーム"
         country: "居住国"
+        email: "メールアドレス"
+        password: "パスワード"
+        remember_me: "ログインしたままにする"
+      map:
+        spotname: "スポット"
+      comment:
+        title: "タイトル"
+        comment: "コメント"
+        image: "写真（なくても投稿できます）"
+        star: "評価"
 
 

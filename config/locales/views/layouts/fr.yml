@@ -2,15 +2,15 @@ fr:
    layouts:
       header:
        map: "Carte"
-       mypage: "Ma mage"
+       mypage: "Ma page"
        logout: "Se déconnecter"
        login: "Se connecter"
-       serachspot: "Chercher les places"
+       serachspot: "Chercher un endroit"
        searchbutton: "Recherche"
-       exact: "Accord parfait"
-       forward: "Accord en avant"
-       backward: "Accord en arrière"
-       partial: "Accord partiel"
+       exact: "Concordance parfaite"
+       forward: "Concordance en avant"
+       backward: "Concordance en arrière"
+       partial: "Concordance partielle"
 
       error_messages:
-       errormessages: "erreur(s)"
+       errormessages: "erreur(s) relevée(s)"

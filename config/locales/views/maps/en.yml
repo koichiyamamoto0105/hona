@@ -4,3 +4,21 @@ en:
       information: "Search Spots on Map"
       welcome: "Welocome to Hona!"
       mostliked: "Popular Spots"
+     index:
+      searchandpost: "Search/Post a Spot"
+      searchbutton: "Search"
+      registration: "Register as new Spot"
+      warning: "You need to registrate to post Spots"
+     show:
+      comment: "There is no comment for this spot"
+      newcomment: "Comment on this spot"
+      backtomap: "Back to Map"
+      logintocomment: "Log in to comment"
+      hascommented: "has commented"
+      delete: "delete"
+      areyousure: "Are you sure?"
+      postedon: "Posted on "
+     form:
+      commentonlymember: "You can comment after being a member"
+      submitcomment: "Submit"
+

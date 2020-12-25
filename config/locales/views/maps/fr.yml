@@ -4,3 +4,20 @@ fr:
       information: "Chercher les place sur la carte"
       welcome: "Bienvuene à Hona!"
       mostliked: "Les places populaires"
+     index:
+      searchandpost: "Chercher/Poster un endroit"
+      searchbutton: "Chercher"
+      registration: "Inscrire comme nouvel endroit"
+      warning: "Il a besoin de s'inscrire pour poster"
+     show:
+      comment: "Il n'y a pas d'un bouche à oreille"
+      newcomment: "Comment on this spot"
+      backtomap: "Retourner à la carte"
+      logintocomment: "Se connecter pour commenter"
+      hascommented: "a commenté(e)"
+      delete: "supprimer"
+      areyousure: "Vous êtes sûr?"
+      postedon: "Commenté(e) à "
+     form:
+      commentonlymember: "Inscrivez-vous pour commenter"
+      submitcomment: "Envoyer"

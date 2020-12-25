@@ -1,19 +1,19 @@
 <div class="gmap">
-  <h2>スポット検索・投稿</h2>
+  <h2><%= t('.searchandpost') %></h2>
 
   <input id="address" type="textbox" value="">
-  <input type="button" value="検索" onclick="codeAddress()">
+  <input type="button" value=<%= t('.searchbutton') %> onclick="codeAddress()">
 
   <% if user_signed_in? %><!-- 地図情報を保存するフォーム -->
   <%= form_with model: @map, local:true do |f| %>
   <!-- 検索値を隠しデータとして送信-->
   <input type="hidden" name="map[address]" id="hidden_address">
-  <%= f.label :spotname, "スポット名" %>
+  <%= f.label :spotname %>
   <%= f.text_field :spotname, readonly: true %>
-  <%= f.submit "新たなスポットを登録する" %>
+  <%= f.submit t('.registration') %>
   <% end %>
   <% else %>
-  <div>スポット投稿は会員の方のみができます</div>
+  <div><%= t('.warning') %></div>
   <% end %>
 
 

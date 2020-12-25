@@ -8,3 +8,5 @@ fr:
      mypagetitle: "Ma page"
     edit:
       <<: *user_common
+    favorites:
+     favoritesindex: "Vos endroits Favoris"
