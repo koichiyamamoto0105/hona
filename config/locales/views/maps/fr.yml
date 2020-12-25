@@ -12,7 +12,7 @@ fr:
       error: "Cet endroit est déjà existé"
      show:
       comment: "Il n'y a pas d'un bouche à oreille"
-      newcomment: "Comment on this spot"
+      newcomment: "Commentaire pour cet endroit"
       backtomap: "Retourner à la carte"
       logintocomment: "Se connecter pour commenter"
       hascommented: "a commenté(e)"
