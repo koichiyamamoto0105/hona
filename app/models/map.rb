@@ -4,7 +4,7 @@ class Map < ApplicationRecord
   has_many :comments, dependent: :destroy
 
 
-  validates :latitude, presence: true, :uniqueness => { :scope => :longitude }
+  validates :latitude, presence: true, :uniqueness => { scope: [:longitude, :spotname]}
   validates :longitude, presence: true
   validates :spotname, presence: true
 
