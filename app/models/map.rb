@@ -5,7 +5,7 @@ class Map < ApplicationRecord
 
 
   validates :latitude, presence: true, :uniqueness => { :scope => :longitude }
-  validates :longitude, presence: true, :uniqueness => { :scope => :latitude }
+  validates :longitude, presence: true
   validates :spotname, presence: true
 
   geocoded_by :address
