@@ -9,6 +9,7 @@ ja:
       searchbutton: "検索"
       registration: "新たなスポットを登録する"
       warning: "スポット投稿は会員の方のみができます"
+      error: "既にスポットは登録済みです"
      show:
       comment: "まだ口コミはありません"
       newcomment: "新規口コミ投稿"

@@ -9,6 +9,7 @@ en:
       searchbutton: "Search"
       registration: "Register as new Spot"
       warning: "You need to registrate to post Spots"
+      error: "This spot is already posted"
      show:
       comment: "There is no comment for this spot"
       newcomment: "Comment on this spot"

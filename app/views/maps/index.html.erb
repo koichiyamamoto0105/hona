@@ -1,5 +1,8 @@
 <div class="gmap">
   <h2><%= t('.searchandpost') %></h2>
+  <% if @map.errors.any? %>
+  <h2><%= t('.error') %></h2>
+  <% end %>
 
   <input id="address" type="textbox" value="">
   <input type="button" value=<%= t('.searchbutton') %> onclick="codeAddress()">
