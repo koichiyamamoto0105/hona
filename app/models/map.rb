@@ -4,8 +4,8 @@ class Map < ApplicationRecord
   has_many :comments, dependent: :destroy
 
 
-  validates :latitude, presence: true, :uniqueness => { scope: [:longitude, :spotname]}
-  validates :longitude, presence: true
+  validates :latitude, presence: true, :uniqueness => { scope: [:spotname]}
+  validates :longitude, presence: true, :uniqueness => { scope: [:spotname]}
   validates :spotname, presence: true
 
   geocoded_by :address
