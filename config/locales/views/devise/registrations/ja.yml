@@ -1,0 +1,11 @@
+ja:
+   devise:
+    registrations:
+     new:
+      registraitons: "新規会員登録"
+      ifmember: "既に登録済みの方"
+      click: ""
+      here: "こちら"
+      alreadymember: "からログインしてください"
+      password: "パスワード(6文字以上)"
+      password_confirmation:  "パスワード(確認用)"

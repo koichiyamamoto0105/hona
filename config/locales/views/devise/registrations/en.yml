@@ -1,0 +1,11 @@
+en:
+   devise:
+    registrations:
+     new:
+      registraitons: "Registration"
+      ifmember: "If you are a member"
+      click: "Click "
+      here: "here "
+      alreadymember: "to log in"
+      password: "password(6 characters minimum)"
+      password_confirmation:  "password(confirm)"

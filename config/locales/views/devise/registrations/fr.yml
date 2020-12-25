@@ -1,0 +1,11 @@
+fr:
+   devise:
+    registrations:
+     new:
+      registraitons: "Inscription"
+      ifmember: "Si vous êtes membre "
+      click: "Cliquer "
+      here: "ici "
+      alreadymember: "pour vous connecter"
+      password: "password(6 charactaires minimums)"
+      password_confirmation:  "password(confirmation)"

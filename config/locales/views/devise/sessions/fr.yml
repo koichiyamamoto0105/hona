@@ -1,0 +1,9 @@
+fr:
+   devise:
+    sessions:
+     new:
+      login: "Se connecter"
+      bemember: "Pas encore de s'inscrire"
+      click: "Cliquer "
+      here: "ici "
+      tobemember: "pour vous inscrire"

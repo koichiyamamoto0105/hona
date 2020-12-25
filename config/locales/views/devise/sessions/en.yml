@@ -1,0 +1,9 @@
+en:
+   devise:
+    sessions:
+     new:
+      login: "Log in"
+      bemember: "If you are not member"
+      click: "Click "
+      here: "here "
+      tobemember: "to join us"

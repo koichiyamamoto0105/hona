@@ -1,0 +1,10 @@
+ja:
+   devise:
+    sessions:
+     new:
+      login: "ログイン"
+      bemember: "登録がお済みではない方は"
+      click: ""
+      here: "こちら"
+      tobemember: "から新規登録を行ってください"
+  
