@@ -19,6 +19,8 @@ ja:
       delete: "削除"
       areyousure: "本当に削除してもよろしいですか？"
       postedon: "投稿日： "
+      review: "件の評価中"
+      point: "点"
      form:
       commentonlymember: "口コミ投稿は会員の方のみができます"
       submitcomment: "口コミを投稿"

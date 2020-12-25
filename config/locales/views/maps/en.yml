@@ -19,6 +19,8 @@ en:
       delete: "delete"
       areyousure: "Are you sure?"
       postedon: "Posted on "
+      review: "review(s) "
+      point: "point(s)(average)"
      form:
       commentonlymember: "You can comment after being a member"
       submitcomment: "Submit"

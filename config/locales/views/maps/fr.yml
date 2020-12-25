@@ -19,6 +19,8 @@ fr:
       delete: "supprimer"
       areyousure: "Vous êtes sûr?"
       postedon: "Commenté(e) à "
+      review: "éstimation(s) "
+      point: "point(s)(en moyenne)"
      form:
       commentonlymember: "Inscrivez-vous pour commenter"
       submitcomment: "Envoyer"

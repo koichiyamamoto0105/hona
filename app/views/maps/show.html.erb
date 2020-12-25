@@ -6,7 +6,7 @@
         <%#= render_with_hashtags(@map.caption) %>
           <div class="average-star-rate<%= @avarage_star %>"></div>
            <% if @comments.present? %>
-            <div><%= @comments.count %>件の評価中<%= @average_star %>点</div>
+            <div><%= @comments.count %><%= t('.review')%><%= @average_star %><%= t('.point')%></div>
          <script>
          $('.average-star-rate<%= @avarage_star %>').raty({
            size      : 25,
