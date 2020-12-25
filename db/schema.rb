@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_17_035755) do
+ActiveRecord::Schema.define(version: 2020_12_22_091307) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -31,16 +31,21 @@ ActiveRecord::Schema.define(version: 2020_12_17_035755) do
   end
 
   create_table "hashtag_spots", force: :cascade do |t|
-    t.integer "hashtag_id"
-    t.integer "spot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "hashtag_id"
+    t.integer "map_id"
+    t.integer "comment_id"
+    t.index ["comment_id"], name: "index_hashtag_spots_on_comment_id"
+    t.index ["hashtag_id"], name: "index_hashtag_spots_on_hashtag_id"
+    t.index ["map_id"], name: "index_hashtag_spots_on_map_id"
   end
 
   create_table "hashtags", force: :cascade do |t|
     t.string "hashname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["hashname"], name: "index_hashtags_on_hashname", unique: true
   end
 
   create_table "maps", force: :cascade do |t|
