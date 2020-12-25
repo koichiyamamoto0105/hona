@@ -62,12 +62,6 @@ class MapsController < ApplicationController
     @maps = Map.search(params[:search])
   end
 
-  # def hashtag
-  #   @user = current_user
-  #   @tag = Hashtag.find_by(hashname: params[:name])
-  #   @maps = @tag.maps
-  # end
-
   private
 
   def user_params
