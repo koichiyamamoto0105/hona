@@ -1,5 +1,4 @@
 class MapsController < ApplicationController
-
   before_action :authenticate_user!, except: [:top, :index, :show, :search]
   before_action :ensure_correct_user, only: [:update, :edit]
 
@@ -34,7 +33,7 @@ class MapsController < ApplicationController
       @average_star += star
     end
     begin
-    @average_star = @average_star / @stars.length
+      @average_star /= @stars.length
     rescue
       @average_star = 0
     end
@@ -62,6 +61,12 @@ class MapsController < ApplicationController
   def search
     @maps = Map.search(params[:search])
   end
+
+  # def hashtag
+  #   @user = current_user
+  #   @tag = Hashtag.find_by(hashname: params[:name])
+  #   @maps = @tag.maps
+  # end
 
   private
 
