@@ -51,7 +51,11 @@
              <div id="star-rate<%= comment.id %>"></div>
             <div><%= comment.comment %></div>
             <div><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
+            <% if user_signed_in? %>
             <div><%= link_to comment.user.nickname, user_path(comment.user.id) %><%= t('.hascommented') %></div>
+            <% else %>
+            <div><%= comment.user.nickname %><%= t('.hascommented') %></div>
+            <% end %>
             <div><%= comment.user.country_name %></div>
             <div><%= t('.postedon') %><%= comment.created_at.strftime('%Y/%m/%d') %></div>
             <script>
