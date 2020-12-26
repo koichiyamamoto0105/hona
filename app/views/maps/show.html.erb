@@ -47,7 +47,7 @@
             <% @comments.each do |comment| %>
 
             <h3><%= comment.title %></h3>
-             <p>評価 :<%= comment.star %>点</p>
+
              <div id="star-rate<%= comment.id %>"></div>
             <div><%= comment.comment %></div>
             <div><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
