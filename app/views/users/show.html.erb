@@ -25,4 +25,6 @@
  <%= link_to t('.edittitle'), edit_user_path(@user.id) %>
 <% end %>
 <%#= link_to "投稿一覧", edit_user_path(@user.id) %>
+<% if @favorite_list.present? %>
 <%= link_to t('.likedspots'), favorites_user_path(@favorite_list, user_id: @user) %>
+<% end %>
