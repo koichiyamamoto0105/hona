@@ -12,8 +12,8 @@ ja:
       error: "既にスポットは登録済みです"
      show:
       comment: "まだ口コミはありません"
-      newcomment: "新規口コミ投稿"
-      backtomap: "口コミマップに戻る"
+      newcomment: "このスポットに口コミを投稿する"
+      backtomap: "他のスポットに口コミを投稿する"
       logintocomment: "ログインして口コミを投稿する"
       hascommented: "さんが投稿しました"
       delete: "削除"
