@@ -1,15 +1,16 @@
 ja:
    maps:
-     top:
-      information: "スポットを地図から探す"
+     top: &map_common
+      information: "大きな地図でスポットを探す"
       welcome: "Hona!へようこそ！！"
       mostliked: "いいねの多いスポット"
-     index:
       searchandpost: "スポット検索・投稿"
       searchbutton: "検索"
       registration: "新たなスポットを登録する"
       warning: "スポット投稿は会員の方のみができます"
       error: "既にスポットは登録済みです"
+     index:
+      <<: *map_common
      show:
       comment: "まだ口コミはありません"
       newcomment: "このスポットに口コミを投稿する"

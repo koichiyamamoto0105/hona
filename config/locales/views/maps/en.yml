@@ -1,15 +1,16 @@
 en:
    maps:
-     top:
-      information: "Search Spots on Map"
+     top: &map_common
+      information: "Search Spots on Big Map"
       welcome: "Welocome to Hona!"
       mostliked: "Popular Spots"
-     index:
       searchandpost: "Search/Post a Spot"
       searchbutton: "Search"
       registration: "Register as new Spot"
       warning: "You need to registrate to post Spots"
       error: "This spot is already posted"
+     index:
+       <<: *map_common
      show:
       comment: "There is no comment for this spot"
       newcomment: "Comment on this spot"

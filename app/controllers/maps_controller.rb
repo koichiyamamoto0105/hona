@@ -4,6 +4,8 @@ class MapsController < ApplicationController
 
   def top
     @all_ranks = Map.create_all_ranks
+    @map = Map.new
+    @maps = Map.all
   end
 
   def index

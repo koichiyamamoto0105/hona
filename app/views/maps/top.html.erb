@@ -1,6 +1,9 @@
-<h1><%= t('.welcome') %></h1>
+<div class="container-fluid">
+  <div class="row justify-content-start">
 
-<h3><%= link_to t('.information'), maps_path %></h3>
+    <div class='col-lg-7'>
+
+<h1><%= t('.welcome') %></h1>
 
 <h3><%= t('.mostliked') %></h3>
 <% @all_ranks.each do |map| %>
@@ -28,3 +31,123 @@
 <% end %>
 
 <% end %>
+</div>
+ <div class='col-lg-5'>
+
+   <div class="gmap">
+  <h3><%= t('.searchandpost') %></h3>
+  <h5><%= link_to t('.information'), maps_path %></h5>
+  <% if @map.errors.any? %>
+  <h2><%= t('.error') %></h2>
+  <% end %>
+
+  <input id="address" type="textbox" value="">
+  <input type="button" value=<%= t('.searchbutton') %> onclick="codeAddress()">
+
+  <% if user_signed_in? %><!-- 地図情報を保存するフォーム -->
+  <%= form_with model: @map, local:true do |f| %>
+  <!-- 検索値を隠しデータとして送信-->
+  <input type="hidden" name="map[address]" id="hidden_address">
+  <%= f.label :spotname %>
+  <%= f.text_field :spotname, readonly: true %>
+  <%= f.submit t('.registration') %>
+  <% end %>
+  <% else %>
+  <div><%= t('.warning') %></div>
+  <% end %>
+
+
+<div id='map'></div>
+
+
+
+<script>
+  let map;
+  let geocoder;
+  let marker = [];
+  let infoWindow = [];
+
+ function initMap(){
+
+    geocoder = new google.maps.Geocoder()
+
+  // 初期位置の指定
+  map = new google.maps.Map(document.getElementById('map'), {
+  center: {
+        lat: 34.704064,
+        lng: 135.500435
+      },
+  zoom: 8
+  });
+
+
+  // マーカーを立てる
+  <% @maps.each do |map| %>
+    var image = "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+    var id = <%= map.id %>
+    // 緯度経度のデータを作成
+    var markerLatLng = new google.maps.LatLng({lat: <%= map.latitude %>, lng: <%= map.longitude %>});
+    // マーカーの追加
+    marker["<%= map.id %>"] = new google.maps.Marker({
+      position: markerLatLng,
+      map: map,
+      icon: image,
+    });
+
+    // 吹き出しの追加
+    infoWindow["<%= map.id %>"] = new google.maps.InfoWindow({
+    // 吹き出しに詳細ページへのリンクを追加
+    content:  `<a href=maps/${"<%= map.id %>"}>${"<%= map.spotname %>"} </a>`
+    });
+
+    markerEvent("<%= map.id %>");
+  <% end %>
+
+  // マーカークリック時に吹き出しを表示する
+  function markerEvent(i) {
+    marker[i].addListener('click', function() {
+      infoWindow[i].open(map, marker[i]);
+    });
+  }
+ }
+
+    function codeAddress() {
+      let inputAddress = document.getElementById('address').value;
+
+    geocoder.geocode({
+      'address': inputAddress
+    }, function (results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+
+        if(marker != null){
+        marker.setMap(null);
+        }
+        marker = null;
+
+        var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        });
+
+        let spotname = document.getElementById('map_spotname');
+        spotname.setAttribute("value", inputAddress);
+
+        let hidden_address = document.getElementById('hidden_address');
+        hidden_address.setAttribute("value", inputAddress);
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer>
+</script>
+
+
+
+</div>
+</div>
+</div>

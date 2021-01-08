@@ -1,15 +1,16 @@
 fr:
    maps:
-     top:
-      information: "Chercher les place sur la carte"
+     top: &map_common
+      information: "Chercher les place sur la carte plus grande"
       welcome: "Bienvuene à Hona!"
       mostliked: "Les places populaires"
-     index:
       searchandpost: "Chercher/Poster un endroit"
       searchbutton: "Chercher"
       registration: "Inscrire comme nouvel endroit"
       warning: "Il a besoin de s'inscrire pour poster"
       error: "Cet endroit est déjà existé"
+     index:
+       <<: *map_common
      show:
       comment: "Il n'y a pas d'un bouche à oreille"
       newcomment: "Commentaire pour cet endroit"
