@@ -14,10 +14,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
+  def index
+    @map = Map.find(params[:map_id])
+    redirect_to map_path(@map.id)
   end
 
   def destroy

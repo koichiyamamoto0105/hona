@@ -77,7 +77,46 @@
 
             <%= paginate @comments %>
 
+
+
+<div id='map1'></div>
+
+
+
+<script>
+  let map;
+  let geocoder;
+  let marker = [];
+
+ function initMap(){
+
+    geocoder = new google.maps.Geocoder()
+
+
+      latLng = {lat: <%= @map.latitude %>, lng: <%= @map.longitude %>};
+     map = new google.maps.Map(document.getElementById('map1'), {
+  center: latLng,
+  zoom: 8
+  });
+
+    var image = "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+    var id = <%= @map.id %>
+    // 緯度経度のデータを作成
+    var markerLatLng = new google.maps.LatLng({lat: <%= @map.latitude %>, lng: <%= @map.longitude %>});
+    // マーカーの追加
+    marker["<%= @map.id %>"] = new google.maps.Marker({
+      position: markerLatLng,
+      map: map,
+      icon: image,
+    });
+ }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer>
+</script>
+
             </div>
+
+
 
         <div class='col-xs-3'>
           <div class="commentnew">
@@ -92,3 +131,4 @@
         </div>
     </div>
 </div>
+
