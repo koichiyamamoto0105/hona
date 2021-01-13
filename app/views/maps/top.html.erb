@@ -34,9 +34,8 @@
 </div>
  <div class='col-lg-5'>
 
-   <div class="gmap">
-  <h3><%= t('.searchandpost') %></h3>
-  <h5><%= link_to t('.information'), maps_path %></h5>
+  <div class="gmap">
+  <h2><%= t('.searchandpost') %></h2>
   <% if @map.errors.any? %>
   <h2><%= t('.error') %></h2>
   <% end %>
@@ -57,9 +56,8 @@
   <% end %>
 
 
-<div id='map2'></div>
-
-
+  <div id='maptop'></div>
+  <!--<div class='map'></div>-->
 
 <script>
   let map;
@@ -72,7 +70,7 @@
     geocoder = new google.maps.Geocoder()
 
   // 初期位置の指定
-  map = new google.maps.Map(document.getElementById('map2'), {
+  map = new google.maps.Map(document.getElementById('maptop'), {
   center: {
         lat: 34.704064,
         lng: 135.500435

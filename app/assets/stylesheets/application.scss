@@ -56,9 +56,18 @@ main {
   padding: 210px 0;
 }
 
-#map {
+#maptop {
   height: 500px;
 }
+
+#mapindex {
+  height: 500px;
+}
+
+#mapshow {
+  height: 250px;
+}
+
 .gmap input {
   border: 1px solid #000;
 }
@@ -76,3 +85,29 @@ main {
   justify-content: flex-end;
   padding-right: 20px;
 }
+
+#top-center {
+   position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // margin-right: -50%;
+        // transform: translate(-50%, -50%)
+}
+
+// .item_image_btn{
+//     display: none;
+// }
+// // 元の送信ボタンを隠す
+
+// #img_field {
+//   font-size: 25px;
+//   font-style: inherit;
+//   margin: 0 auto;
+//   color: white;
+//   background-color: #5bc0de;
+//   border-radius: 5px;
+//   width: 300px;
+//   height: 40px;
+//   text-align: center;
+//   line-height: 40px;
+// }

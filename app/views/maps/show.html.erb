@@ -79,7 +79,7 @@
 
 
 
-<div id='map1'></div>
+<div id='mapshow'></div>
 
 
 
@@ -94,7 +94,7 @@
 
 
       latLng = {lat: <%= @map.latitude %>, lng: <%= @map.longitude %>};
-     map = new google.maps.Map(document.getElementById('map1'), {
+     map = new google.maps.Map(document.getElementById('mapshow'), {
   center: latLng,
   zoom: 8
   });
