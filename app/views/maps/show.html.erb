@@ -34,9 +34,11 @@
             <!--<%# else %>-->
             <!--<p>写真はまだありません</p>-->
             <!--<%# end %>-->
-            <% @map.comments.each do |comment| %>
-            <div><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
+
+            <div class="flex-row"><% @map.comments.each do |comment| %>
+            <%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %>
             <% end %>
+            </div>
 
           　<!--管理者のみ可能にしたい-->
           	<!--<h5>スポットの編集</h5>-->
