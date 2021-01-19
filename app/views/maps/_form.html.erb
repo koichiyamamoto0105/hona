@@ -1,37 +1,37 @@
 <% if user_signed_in? %>
 <%= form_with model: [map,comment], local:true do |f| %>
-  <div class="field row">
-    <%= f.label :title %>
+  <div class="form-group">
+    <%= f.label :title, class:"control-label" %></br>
     <%= f.text_field :title %>
     <% if @comment.errors.include?(:title) %>
      <p style="color: red;"><%= @comment.errors.full_messages_for(:title).first %>
     <% end %>
   </div>
-  <div class="field row">
-    <%= f.label :comment %>
+
+  <div class="form-group">
+    <%= f.label :comment, class:"control-label"  %></br>
     <%= f.text_area :comment %>
     <% if @comment.errors.include?(:comment) %>
      <p style="color: red;"><%= @comment.errors.full_messages_for(:comment).first %>
     <% end %>
   </div>
-  <div class="field row">
-    <!--<div class="image_wrapper">-->
 
-        <%= f.label :image %>
-        <!--<div class="item_image_btn">-->
-        <%= f.attachment_field :image %>
-        <!--, id: "file"-->
-    <!--  </div>-->
-    <!--  <div id="img_field" onClick="$('#file').click()", class: "btn btn-primary"  >-->
-    <!--<p>画像選択</p>-->
-    <!-- </div>-->
-    <!--</div>-->
+  <div class="form-group">
+    <%= f.label :image %>
+    <div class="image_wrapper">
+    <div class="item_image_btn">
+    <%= f.attachment_field :image, id: "file" %>
+    </div>
+      <div id="img_field" onClick="$('#file').click()", class: "btn btn-primary">
+    <div><%= t('.selectimage') %></div>
+     </div>
+    </div>
   </div></br>
 
   <img id="preview" style="width:40%;">
 
 <script>
-  $('#comment_image').on('change', function (e) {
+  $('#file').on('change', function (e) {
     var reader = new FileReader();
     reader.onload = function (e) {
         $("#preview").attr('src', e.target.result);
@@ -40,14 +40,16 @@
 });
 </script>
 
-  <div class="field row" id="star">
-    <%= f.label :star, class:'col-md-3 col-form-label' %></br>
+  <div class="form-group" id="star">
+    <%= f.label :star, class:"control-label" %></br>
     <%= f.hidden_field :star, id: :review_star %>
     <% if @comment.errors.include?(:star) %>
      <p style="color: red;"><%= @comment.errors.full_messages_for(:star).first %>
     <% end %>
   </div></br>
+  <div class="form-group">
   <%= f.submit t('.submitcomment') %>
+  </div>
   <!-- 評価javascript -->
   <script>
   $('#star').raty({
