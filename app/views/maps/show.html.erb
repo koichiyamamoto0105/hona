@@ -29,16 +29,22 @@
           	  <%= link_to "", new_user_session_path, class: "fa fa-heart-o" %>
             <% end %>
 
-            <!--<%# if @image.present? %>-->
-            <!--<p>口コミ投稿者の写真</p>-->
-            <!--<%# else %>-->
-            <!--<p>写真はまだありません</p>-->
-            <!--<%# end %>-->
 
-            <div class="flex-row"><% @map.comments.each do |comment| %>
-            <%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %>
-            <% end %>
+           <div class="imagesize">
+
+             <% if @map.comments.select{|comment| comment.image.present?}.count == 0 %>
+              <p>写真はまだありません</p>
+             <% else %>
+             <div class="slider">
+              <% @map.comments.select{|comment| comment.image.present?}.each do |comment| %>
+             <%# if comment.image.present? %>
+               <%= attachment_image_tag comment, :image, :fill, 100, 100, format: 'jpeg' %>
+              <% end %>
+              </div>
+             <% end %>
+
             </div>
+
 
           　<!--管理者のみ可能にしたい-->
           	<!--<h5>スポットの編集</h5>-->
