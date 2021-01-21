@@ -20,4 +20,14 @@ class User < ApplicationRecord
     c = ISO3166::Country[country]
     c.translations[I18n.locale.to_s] || c.name
   end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guest"
+      user.nickname = "guestuser"
+      user.country = "JP"
+    end
+  end
+
 end
