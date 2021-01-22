@@ -23,7 +23,10 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy, :index]
       resources :comments, only: [:create, :destroy, :index]
     end
-    # get '/map/hashtag/:name', to: "maps#hashtag"
+
+    get '/comment/hashtag/:name', to: "comments#hashtag"
+    get '/comment/hashtag', to: "comments#hashtag"
     get '/search', to: 'search#search'
+
   end
 end

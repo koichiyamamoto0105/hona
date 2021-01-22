@@ -26,6 +26,23 @@ class CommentsController < ApplicationController
     redirect_to request.referer
   end
 
+  def hashtag
+
+    @user = current_user
+    @tag = Hashtag.find_by(hashname: params[:name])
+    @comments = @tag.comments
+    @stars = @comments.pluck(:star)
+    @average_star = 0
+    @stars.each do |star|
+      @average_star += star
+    end
+    begin
+      @average_star /= @stars.length
+    rescue
+      @average_star = 0
+    end
+  end
+
   private
 
   def comment_params

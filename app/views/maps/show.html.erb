@@ -3,7 +3,8 @@
 
     <div class='col-xs-9'>
         <h1><%= @map.spotname %></h1>
-        <%#= render_with_hashtags(@map.caption) %>
+        <!--ハッシュタグ-->
+
           <div class="average-star-rate<%= @avarage_star %>"></div>
            <% if @comments.present? %>
             <div><%= @comments.count %><%= t('.review')%><%= @average_star %><%= t('.point')%></div>
@@ -37,7 +38,6 @@
              <% else %>
              <div class="slider">
               <% @map.comments.select{|comment| comment.image.present?}.each do |comment| %>
-             <%# if comment.image.present? %>
                <%= attachment_image_tag comment, :image, :fill, 100, 100, format: 'jpeg' %>
               <% end %>
               </div>
@@ -57,7 +57,7 @@
             <h3><%= comment.title %></h3>
 
              <div id="star-rate<%= comment.id %>"></div>
-            <div><%= comment.comment %></div>
+            <div><%= render_with_hashtags(comment.comment) %></div>
             <div><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
             <% if user_signed_in? %>
             <div><%= link_to comment.user.nickname, user_path(comment.user.id) %><%= t('.hascommented') %></div>

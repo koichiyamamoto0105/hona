@@ -1,0 +1,18 @@
+<h2>ハッシュタグ #<%= @tag.hashname %></h2>
+  <ul>
+    <% @comments.each do |comment| %>
+
+    <h3><%= link_to comment.map.spotname, map_path(comment.map.id) %></h3>
+   <div class="average-star-rate<%= comment.map.id %>"></div>
+   <script>
+         $('.average-star-rate<%= comment.map.id %>').raty({
+           size      : 25,
+           starOff   : '<%= asset_path('star-off.png') %>',
+           starOn    : '<%= asset_path('star-on.png') %>',
+           readOnly: true,
+           score: <%= @average_star %>,
+          });
+         </script>
+    <% end %>
+  </ul>
+
