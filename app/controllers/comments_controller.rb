@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     @map = Map.find(params[:map_id])
     comment = @map.comments.find(params[:id])
     comment.destroy
-    redirect_to request.referer
+    redirect_to map_path(@map.id)
   end
 
   def hashtag
@@ -31,16 +31,6 @@ class CommentsController < ApplicationController
     @user = current_user
     @tag = Hashtag.find_by(hashname: params[:name])
     @comments = @tag.comments
-    @stars = @comments.pluck(:star)
-    @average_star = 0
-    @stars.each do |star|
-      @average_star += star
-    end
-    begin
-      @average_star /= @stars.length
-    rescue
-      @average_star = 0
-    end
   end
 
   private
