@@ -11,6 +11,9 @@ fr:
        forward: "Concordance en avant"
        backward: "Concordance en arrière"
        partial: "Concordance partielle"
+       ja: "日本語"
+       en: "English"
+       fr: "Français"
 
       error_messages:
        errormessages: "erreur(s) relevée(s)"

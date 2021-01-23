@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = locale
+    @locale_name = {en: 'en', ja: 'ja', fr: 'fr'}
   end
 
   def locale
@@ -28,4 +29,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :nickname, :country])
   end
+
+
+
 end

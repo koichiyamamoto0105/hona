@@ -11,6 +11,9 @@ en:
        forward: "Forward match"
        backward: "Backward match"
        partial: "Partial match"
+       ja: "日本語"
+       en: "English"
+       fr: "Français"
 
       error_messages:
        errormessages: "prohibited this obj from being saved。"
