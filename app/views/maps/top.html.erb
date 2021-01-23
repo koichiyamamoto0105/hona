@@ -18,27 +18,34 @@
     size      : 25,
     starOff   : '<%= asset_path('star-off.png') %>',
     starOn    : '<%= asset_path('star-on.png') %>',
+    starHalf:  '<%= asset_path('star-half.png') %>',
     readOnly: true,
-    score: <%= map.comments.average_star %>,
+    score: <%= map.comments.average(:star) %>,
   });
 </script>
  <% else%>
   <p>まだ口コミはありません</p>
   <% end %>
 
-
-
 <div class="imagesize">
-<div class="slider">
-<% map.comments.each do |comment| %>
- <%= attachment_image_tag comment, :image, :fill, 100, 100, format: 'jpeg' %>
-<% end %>
-</div>
-</div>
-</br>
 
-<% end %>
+   <% if map.comments.select{|comment| comment.image.present?}.count == 0 %>
+    <p>写真はまだありません</p>
+   <% else %>
+   <div class="slider">
+    <% map.comments.select{|comment| comment.image.present?}.each do |comment| %>
+     <%= attachment_image_tag comment, :image, :fill, 100, 100, format: 'jpeg' %>
+    <% end %>
+    </div>
+   <% end %>
 </div>
+<% end %>
+<%#= link_to "国", country_maps_path %>
+
+</div>
+
+
+
  <div class='col-lg-5'>
 
   <div class="gmap">
@@ -59,7 +66,7 @@
   <%= f.submit t('.registration') %>
   <% end %>
   <% else %>
-  <div><%= t('.warning') %></div>
+  <div>※<%= t('.warning') %></div>
   <% end %>
 
 
@@ -153,6 +160,7 @@
 
 
 
+</div>
 </div>
 </div>
 </div>
