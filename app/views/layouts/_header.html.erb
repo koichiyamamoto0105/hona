@@ -1,9 +1,8 @@
  <header>
 
 <% I18n.available_locales.reject{|l| l == I18n.locale}.each do |locale| %>
-  <%= link_to(locale, i18n_url_for(params.merge(locale: locale).permit!)) %>
+<%= link_to(t('.' + @locale_name[locale]), i18n_url_for(params.merge(locale: locale).permit!)) %>
 <% end %>
-
 
    <% if user_signed_in? %>
      <nav>
@@ -25,7 +24,7 @@
   <% end %>
 
     <div class="header-content">
-      <%= link_to image_tag("logo.png", style: "width: 100px; height: 100px;"), root_path, class: "logo" %>
+      <%= link_to image_tag("logo.png", style: "width: 80px; height: 80px;"), root_path, class: "logo" %>
       </div>
 
        <div class="search-form">
