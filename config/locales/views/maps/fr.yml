@@ -10,6 +10,7 @@ fr:
       warning: "Il a besoin de s'inscrire pour poster"
       error: "Cet endroit est déjà existé"
      index:
+     map:
        <<: *map_common
      show:
       comment: "Il n'y a pas d'un bouche à oreille"

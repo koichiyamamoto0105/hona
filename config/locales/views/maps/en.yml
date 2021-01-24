@@ -10,6 +10,7 @@ en:
       warning: "You need to registrate to post Spots"
       error: "This spot is already posted"
      index:
+     map:
        <<: *map_common
      show:
       comment: "There is no comment for this spot"

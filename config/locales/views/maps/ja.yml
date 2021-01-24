@@ -10,6 +10,7 @@ ja:
       warning: "スポット投稿は会員の方のみができます"
       error: "既にスポットは登録済みです"
      index:
+     map:
       <<: *map_common
      show:
       comment: "まだ口コミはありません"
