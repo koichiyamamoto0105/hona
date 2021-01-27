@@ -27,4 +27,6 @@
 <%#= link_to "投稿一覧", edit_user_path(@user.id) %>
 <% if @favorite_list.present? %>
 <%= link_to t('.likedspots'), favorites_user_path(@favorite_list, user_id: @user) %>
+<% else %>
+<h5>いいねしたスポットはまだありません</h5>
 <% end %>
