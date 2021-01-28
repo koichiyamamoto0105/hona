@@ -2,15 +2,15 @@
 <%= form_with model: [map,comment], local:true do |f| %>
   <div class="form-group">
     <%= f.label :title, class:"control-label" %></br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, size:"23x1" %>
     <% if @comment.errors.include?(:title) %>
      <p style="color: red;"><%= @comment.errors.full_messages_for(:title).first %>
     <% end %>
   </div>
 
   <div class="form-group">
-    <%= f.label :comment, class:"control-label"  %></br>
-    <%= f.text_area :comment %>
+    <%= f.label :comment, class:"control-label" %></br>
+    <%= f.text_area :comment, size:"25x7", placeholder:"5文字以上" %>
     <% if @comment.errors.include?(:comment) %>
      <p style="color: red;"><%= @comment.errors.full_messages_for(:comment).first %>
     <% end %>
@@ -66,4 +66,3 @@
   <div><%= t('.commentonlymember') %></div>
   <% end %>
 
-  
