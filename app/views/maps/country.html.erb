@@ -1,0 +1,16 @@
+<% @country_ranks.keys.each do |country_name| %>
+
+<%#= map %>
+<%#= country_name.country_name %>
+
+<% @country_ranks[country_name].each do |spot| %>
+<div><%= link_to spot.spotname, map_path(spot.id)%></div>
+<%= spot.country_name %>
+<% end %>
+
+
+
+<% end %>
+
+<%= @country_name %>
+
