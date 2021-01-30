@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     end
 
     get '/comment/hashtag/:name', to: "comments#hashtag"
-    get '/comment/hashtag', to: "comments#hashtag"
+    get '/comment/all_hashtag', to: "comments#all_hashtag"
     get '/search', to: 'search#search'
 
   end
