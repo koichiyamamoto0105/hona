@@ -11,7 +11,7 @@ class Map < ApplicationRecord
   #geocoded_by :address
   #before_validation :geocode
 
-  def country_name
+  def self.country_name(country)
     c = ISO3166::Country[country]
     c.translations[I18n.locale.to_s] || c.name
   end
@@ -27,12 +27,13 @@ class Map < ApplicationRecord
   def self.create_country_ranks
     results = {}
     countries = User.group(:country).pluck(:country)
+
     countries.each do |country|
-    result = Map.find(Favorite.joins(:user).where("users.country='#{country}'").group(:map_id).order(Arel.sql('count(map_id) desc')).limit(3).pluck(:map_id))
-    # byebug
-    results[country] = result
-  end
-   return results
+      result = Map.find(Favorite.joins(:user).where("users.country='#{country}'").group(:map_id).order(Arel.sql('count(map_id) desc')).limit(3).pluck(:map_id))
+      #byebug
+      results[country_name(country)] = result
+    end
+    return results
   end
 
   def self.search_for(content, method)
@@ -45,11 +46,6 @@ class Map < ApplicationRecord
     else
       Map.where('spotname LIKE ?', '%' + content + '%')
     end
-  end
-
-  def country_name
-    c = ISO3166::Country[country]
-    c.translations[I18n.locale.to_s] || c.name
   end
 
 end
