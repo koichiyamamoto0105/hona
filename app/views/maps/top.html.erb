@@ -8,6 +8,7 @@
 
 <h3><%= t('.mostliked') %></h3>
 <% @all_ranks.each do |map| %>
+<%# byebug %>
 <div><%= link_to map.spotname, map_path(map.id) %></div>
   <i class="fa fa-heart"></i>
     <%= map.favorites.count %>
@@ -40,7 +41,7 @@
    <% end %>
 </div>
 <% end %>
-<%#= link_to "国", country_maps_path %>
+<%= link_to "国", country_maps_path %>
 
 </div>
 
