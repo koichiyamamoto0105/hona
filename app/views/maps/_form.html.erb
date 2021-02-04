@@ -21,6 +21,7 @@
     <div class="image_wrapper">
     <div class="item_image_btn">
     <%= f.attachment_field :image, id: "file" %>
+   
     </div>
       <div id="img_field" onClick="$('#file').click()", class: "btn btn-primary">
     <div><%= t('.selectimage') %></div>
@@ -28,7 +29,7 @@
     </div>
   </div></br>
 
-  <img id="preview" style="width:40%;">
+  <img id="preview" style="width:40%; height:40%; ">
 
 <script>
   $('#file').on('change', function (e) {
