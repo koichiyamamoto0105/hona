@@ -1,4 +1,9 @@
-<h3>スポットの検索結果 "<%= @content %>"</h3>
+<% if @model == 'map' %>
+ <h3>スポットの検索結果 "<%= @content %>"</h3>
   <%= render 'maps/index', maps: @records %>
+ <h5>新たにスポットを登録する=><%=link_to "Go", maps_path %></h5>
+<% elsif @model == 'hashtag' %>
+	<h3>ハッシュタグの検索結果"<%= @content %>"</h3>
+  <%= render 'hashtags/index', hashtags: @records %>
+<% end %>
 
-  <h5>新たにスポットを登録する=><%=link_to "Go", maps_path %></h5>
