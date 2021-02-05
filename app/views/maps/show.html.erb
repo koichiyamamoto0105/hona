@@ -4,6 +4,13 @@
     <div class='col-xs-9'>
         <h1><%= @map.spotname %></h1>
 
+
+
+         <% @comment_tags.each do |comment| %>
+            <div><%= render_with_hashtags(comment.comment) %></div>
+         <% end %>
+
+
           <div class="average-star-rate<%= @map.id %>"></div>
            <% if @comments.present? %>
             <div><%= @comments.total_count %><%= t('.review')%><%= @map.comments.average(:star).to_f.round(1) %><%= t('.point')%></div>
@@ -30,6 +37,7 @@
           	  <%= link_to "", new_user_session_path, class: "fa fa-heart-o" %>
             <% end %>
 
+           <%#= image_tag @comments_url %>
 
            <div class="imagesize">
 
@@ -71,7 +79,7 @@
                     size      : 25,
                     starOff   : '<%= asset_path('star-off.png') %>',
                     starOn    : '<%= asset_path('star-on.png') %>',
-                    half      : false,
+                    starHalf:  '<%= asset_path('star-half.png') %>',
                     readOnly: true,
                     score: <%= comment.star %>,
                   });
