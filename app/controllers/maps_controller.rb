@@ -1,11 +1,15 @@
 class MapsController < ApplicationController
   before_action :authenticate_user!, except: [:top, :index, :show, :search]
-  before_action :ensure_correct_user, only: [:update, :edit]
+  # before_action :ensure_correct_user, only: [:update, :edit]
 
   def top
     @all_ranks = Map.create_all_ranks
     @map = Map.new
     @maps = Map.all
+  end
+
+  def country
+    @country_ranks = Map.create_country_ranks
   end
 
   def index
@@ -29,30 +33,26 @@ class MapsController < ApplicationController
     @map_new = Map.new
     @comment = Comment.new
     @comments = @map.comments.page(params[:page]).per(3)
-    @stars = @comments.pluck(:star)
-    @average_star = 0
-    @stars.each do |star|
-      @average_star += star
-    end
-    begin
-      @average_star /= @stars.length
-    rescue
-      @average_star = 0
-    end
+    # @map2 = Map.find(params[:map_id])
+    # @comment_find = @map.id.comment
+    # @comment_find = Comment.find(params[:id])
+    # byebug
+    # @comments_url = "https://hona-file-resize.s3-ap-northeast-1.amazonaws.com/store/#{Comment.first.image_id.to_s}-thumbnail."
+    @comment_tags = @comments.where("comment LIKE ?", "#%").limit(10)
   end
 
-  def edit
-    @map = Map.find(params[:id])
-  end
+  # def edit
+  #   @map = Map.find(params[:id])
+  # end
 
-  def update
-    @map = Map.find(params[:id])
-    if @map.update(map_params)
-      redirect_to maps_path
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   @map = Map.find(params[:id])
+  #   if @map.update(map_params)
+  #     redirect_to maps_path
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   def destroy
     @map = Map.find(params[:id])
@@ -60,9 +60,6 @@ class MapsController < ApplicationController
     redirect_to maps_path
   end
 
-  def search
-    @maps = Map.search(params[:search])
-  end
 
   private
 
@@ -74,10 +71,8 @@ class MapsController < ApplicationController
     params.require(:map).permit(:address, :latitude, :longitude, :spotname)
   end
 
-  def ensure_correct_user
-    @book = Book.find(params[:id])
-    unless @book.user == current_user
-      redirect_to books_path
-    end
+  def comment_params
+    params.require(:comment).permit(:title, :comment, :image, :star, :image_id)
   end
+
 end
