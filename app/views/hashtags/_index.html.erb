@@ -2,7 +2,6 @@
     <% hashtags.each do |hashtag| %>
       <tr>
         <td><%= link_to "##{hashtag.hashname}", "/comment/hashtag/#{hashtag.hashname}"%></td>
-        <div><%= render_with_hashtags(hashtag.hashname) %></div>
       </tr>
     <% end %>
   </tbody>
