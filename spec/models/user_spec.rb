@@ -24,6 +24,15 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         is_expected.to eq false;
       end
     end
+    context 'nicknameカラム' do
+      let(:test_user) { user }
+      it '空欄でないこと' do
+        test_user.nickname = ''
+        is_expected.to eq false;
+      end
+    end
+
+
   end
     describe 'アソシエーションのテスト' do
     context 'Mapモデルとの関係' do
