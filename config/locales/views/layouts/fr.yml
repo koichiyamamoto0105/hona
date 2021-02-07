@@ -6,6 +6,7 @@ fr:
        logout: "Se déconnecter"
        login: "Se connecter"
        serachspot: "Chercher un endroit"
+       hashtag: "Hashtag"
        searchbutton: "Recherche"
        exact: "Concordance parfaite"
        forward: "Concordance en avant"

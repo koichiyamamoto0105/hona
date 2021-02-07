@@ -6,6 +6,7 @@ en:
        logout: "Logout"
        login: "Log in"
        serachspot: "Search Spotname"
+       hashtag: "Hashtag"
        searchbutton: "Search"
        exact: "Exact match"
        forward: "Forward match"
