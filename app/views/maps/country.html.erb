@@ -1,10 +1,16 @@
+
 <% @country_ranks.keys.each do |country| %>
 
 <h3><%= country %>に人気のスポット</h3>
 
-<% @country_ranks[country].each do |map| %>
-<div><%= link_to map.spotname, map_path(map.id)%></div>
-<% end %>
+
+  <% if @country_ranks[country].select{|map| map.spotname.present?}.count == 0 %>
+    <p>まだいいねされたスポットはありません。</p>
+  <% else %>
+    <% @country_ranks[country].each do |map| %>
+      <div><%= link_to map.spotname, map_path(map.id)%></div>
+    <% end %>
+  <% end %>
 
 <% end %>
 
