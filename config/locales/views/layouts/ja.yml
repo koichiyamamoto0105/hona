@@ -5,6 +5,7 @@ ja:
        mypage: "マイページ"
        logout: "ログアウト"
        login: "ログイン"
+       geustuser: "ゲストログイン"
        serachspot: "スポットを探す"
        hashtag: "ハッシュタグ"
        searchbutton: "検索"

@@ -5,6 +5,7 @@ en:
        mypage: "My page"
        logout: "Logout"
        login: "Log in"
+       geustuser: "Log in as guest user"
        serachspot: "Search Spotname"
        hashtag: "Hashtag"
        searchbutton: "Search"
