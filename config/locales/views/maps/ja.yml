@@ -9,6 +9,7 @@ ja:
       registration: "新たなスポットを登録する"
       warning: "スポット投稿は会員の方のみができます"
       error: "既にスポットは登録済みです"
+      noimage: "写真はまだありません"
      index:
      map:
       <<: *map_common
