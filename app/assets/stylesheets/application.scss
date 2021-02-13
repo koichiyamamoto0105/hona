@@ -61,6 +61,10 @@ main {
 //   height: 500px;
 // }
 
+#padding-left {
+  padding-left: 200px;
+}
+
 #map {
   height: 500px;
 }
@@ -118,6 +122,8 @@ main {
 #preview {
   padding-top: 20px;
   padding-bottom: 20px;
+  max-width: 250px;
+  max-height: 250px;
 }
 
 .imagesize {
