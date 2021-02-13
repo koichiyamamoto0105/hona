@@ -1,8 +1,9 @@
  <header>
-
-<% I18n.available_locales.reject{|l| l == I18n.locale}.each do |locale| %>
-<%= link_to(t('.' + @locale_name[locale]), i18n_url_for(params.merge(locale: locale).permit!)) %>
-<% end %>
+   <div id = "I18n-button">
+    <% I18n.available_locales.reject{|l| l == I18n.locale}.each do |locale| %>
+    <%= link_to(t('.' + @locale_name[locale]), i18n_url_for(params.merge(locale: locale).permit!)) %>
+    <% end %>
+   </div>
 
    <% if user_signed_in? %>
      <nav>
