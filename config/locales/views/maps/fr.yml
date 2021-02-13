@@ -9,6 +9,7 @@ fr:
       registration: "Inscrire comme nouvel endroit"
       warning: "Il a besoin de s'inscrire pour poster"
       error: "Cet endroit est déjà existé"
+      nocomment: "Personne n'a commenté"
       noimage: "Il n'y a pas encore d'image"
      index:
      map:
