@@ -1,59 +1,52 @@
 <div class="container-fluid">
   <div class="row justify-content-start">
+   <div id = "padding-left">
+    <div class='col-lg-4'>
 
-    <div class='col-lg-7'>
+        <h1><%= t('.welcome') %></h1>
 
+        <h3><%= t('.mostliked') %></h3>
+        <% @all_ranks.each do |map| %>
+         <div><%= link_to map.spotname, map_path(map.id) %></div>
+          <i class="fa fa-heart"></i>
+            <%= map.favorites.count %>
+            <% if map.comments.present? %>
+            <div id="average-star-rating<%= map.id %>"></div>
+             <script>
+              $('#average-star-rating<%= map.id %>').raty({
+                size      : 25,
+                starOff   : '<%= asset_path('star-off.png') %>',
+                starOn    : '<%= asset_path('star-on.png') %>',
+                starHalf:  '<%= asset_path('star-half.png') %>',
+                readOnly: true,
+                score: <%= map.comments.average(:star) %>,
+              });
+             </script>
+            <% else%>
+              <p><%= t('.nocomment') %></p>
+            <% end %>
 
-<h1><%= t('.welcome') %></h1>
+         <div class="imagesize">
+           <% if map.comments.select{|comment| comment.image.present?}.count == 0 %>
+            <p><%= t('.noimage') %></p>
+           <% else %>
+            <div class="slider">
+             <% map.comments.select{|comment| comment.image.present?}.each do |comment| %>
+              <%= attachment_image_tag comment, :image, :fill, 100, 100, format: 'jpeg' %>
+             <% end %>
+            </div>
+           <% end %>
+         </div>
+        <% end %>
+        <%= link_to t('.ranks_by_country'), country_maps_path %> <br>
+        <%= link_to t('.hashtag_all'), comment_all_hashtag_path %>
 
-<h3><%= t('.mostliked') %></h3>
-<% @all_ranks.each do |map| %>
-<%# byebug %>
-<div><%= link_to map.spotname, map_path(map.id) %></div>
-  <i class="fa fa-heart"></i>
-    <%= map.favorites.count %>
-<% if map.comments.present? %>
-<div id="average-star-rating<%= map.id %>"></div>
-<script>
-  $('#average-star-rating<%= map.id %>').raty({
-    size      : 25,
-    starOff   : '<%= asset_path('star-off.png') %>',
-    starOn    : '<%= asset_path('star-on.png') %>',
-    starHalf:  '<%= asset_path('star-half.png') %>',
-    readOnly: true,
-    score: <%= map.comments.average(:star) %>,
-  });
-</script>
- <% else%>
-  <p><%= t('.nocomment') %></p>
-  <% end %>
-
-<div class="imagesize">
-
-   <% if map.comments.select{|comment| comment.image.present?}.count == 0 %>
-    <p><%= t('.noimage') %></p>
-   <% else %>
-   <div class="slider">
-    <% map.comments.select{|comment| comment.image.present?}.each do |comment| %>
-     <%= attachment_image_tag comment, :image, :fill, 100, 100, format: 'jpeg' %>
-    <% end %>
     </div>
-   <% end %>
-</div>
-<% end %>
-<%= link_to "国別ランキング", country_maps_path %>
-<%= link_to "いいね一覧", comment_all_hashtag_path %>
+   </div>
 
-</div>
+    <div class='col-lg-5'>
+      <%= render 'maps/map', maps: @maps, map: @map %>
+    </div>
 
-
-
- <div class='col-lg-5'>
-
-
-<%= render 'maps/map', maps: @maps, map: @map %>
-
-
-</div>
-</div>
+ </div>
 </div>

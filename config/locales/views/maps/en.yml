@@ -11,6 +11,8 @@ en:
       error: "This spot is already posted"
       nocomment: "No one posted comment on this spot"
       noimage: "No Images posted"
+      ranks_by_country: "Top 3 most liked spot by country"
+      hashtag_all: "Hashtag List"
      index:
      map:
        <<: *map_common

@@ -11,6 +11,8 @@ fr:
       error: "Cet endroit est déjà existé"
       nocomment: "Personne n'a commenté"
       noimage: "Il n'y a pas encore d'image"
+      ranks_by_country: "Les Top 3 places plus favoris par pays"
+      hashtag_all: "La liste d'Hashtag"
      index:
      map:
        <<: *map_common

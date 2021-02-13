@@ -11,6 +11,8 @@ ja:
       error: "既にスポットは登録済みです"
       nocomment: "まだ口コミはありません"
       noimage: "写真はまだありません"
+      ranks_by_country: "国別ランキング"
+      hashtag_all: "ハッシュタグ一覧"
      index:
      map:
       <<: *map_common
