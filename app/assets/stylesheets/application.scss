@@ -51,6 +51,10 @@ header {
   height: 30px;
 }
 
+#I18n-button {
+  padding: 10px;
+}
+
 
 
 main {
@@ -61,8 +65,16 @@ main {
 //   height: 500px;
 // }
 
-#padding-left {
-  padding-left: 200px;
+// #padding-left {
+//   padding-left: 200px;
+// }
+
+.container-fluid {
+  padding-top: 20px;
+}
+
+.container {
+  padding-top: 20px;
 }
 
 #map {
