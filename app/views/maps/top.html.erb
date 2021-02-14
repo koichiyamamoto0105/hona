@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row justify-content-start">
-   <div id = "padding-left">
-    <div class='col-lg-4'>
+   <!--<div id = "padding-left">-->
+    <div class='col-lg-4 col-lg-offset-2'>
 
         <h1><%= t('.welcome') %></h1>
 
@@ -38,10 +38,11 @@
            <% end %>
          </div>
         <% end %>
-        <%= link_to t('.ranks_by_country'), country_maps_path %> <br>
-        <%= link_to t('.hashtag_all'), comment_all_hashtag_path %>
 
-    </div>
+        <%= link_to t('.ranks_by_country'), country_maps_path, class: "btn btn--orange" %> <br>
+        <%= link_to t('.hashtag_all'), comment_all_hashtag_path, class: "btn btn--orange" %>
+
+    <!--</div>-->
    </div>
 
     <div class='col-lg-5'>

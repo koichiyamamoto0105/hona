@@ -23,37 +23,66 @@
 }
 
 header {
-  border: solid black;
-  border-top-width: 5px;
-  border-right-width: 5px;
-  border-left-width: 5px;
+  // border: solid black;
+  // border-top-width: 5px;
+  // border-right-width: 5px;
+  // border-left-width: 5px;
   width: 100%;
   position: fixed;
   background-color: #fff;
   z-index: 500;
 
   .header-content {
-      text-align: center;
+      text-align: left;
  }
+
+ .navbar-default {
+  background-color: white;
 }
 
-.nav-list {
-  text-align: center;
-  padding: 10px 0;
-  margin: 0 auto;
-  height: 50px;
+.nav-left {
+  padding-top: 20px;
 }
 
-.nav-list-item {
-  list-style: none;
-  display: inline-block;
-  margin: 0 20px;
-  height: 30px;
+.nav-right {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ul {
+      display: flex;
+      padding-top: 10px;
 }
 
-#I18n-button {
-  padding: 10px;
+ li {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+ }
+
 }
+
+// .nav-list {
+//   text-align: center;
+//   padding: 10px 0;
+//   margin: 0 auto;
+//   height: 50px;
+// }
+
+// .nav-list-item {
+//   list-style: none;
+//   display: inline-block;
+//   margin: 0 20px;
+//   height: 30px;
+// }
+
+// #I18n-button {
+//   padding-top: 10px;
+//   padding-right: 10px;
+//   display: flex;
+//   justify-content: flex-end;
+// }
 
 
 
@@ -68,6 +97,26 @@ main {
 // #padding-left {
 //   padding-left: 200px;
 // }
+
+
+// map/top
+
+
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+  border-bottom: 5px solid #b84c00;
+}
+a.btn--orange:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 2px solid #b84c00;
+}
+a.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
 
 .container-fluid {
   padding-top: 20px;
@@ -100,7 +149,7 @@ main {
 .search-form {
   display: flex;
   justify-content: flex-end;
-  padding-right: 50px;
+  padding-right: 150px;
   padding-bottom: 20px;
 }
 
@@ -150,8 +199,42 @@ main {
 
 .slick-prev {
     left: 10px !important;
-  z-index: 100;
+    z-index: 100;
  }
+
+// map/show
+a.btn-gradient {
+  font-size: 1.5rem;
+  color: #ff8c00;
+  border-radius: 100vh;
+  background-image: -webkit-linear-gradient(110deg, #e9defa 0%, #fbfcdb 100%);
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+a.btn-gradient span {
+  background-image: -webkit-gradient(linear, left top, right top, from(#93a5cf), to(#e4efe9));
+  background-image: -webkit-linear-gradient(left, #93a5cf 0%, #e4efe9 100%);
+  background-image: linear-gradient(to right, #93a5cf 0%, #e4efe9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+a.btn-gradient:hover {
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+}
+
+.hashtag-circle {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+// comments/hashtag
+.hashtag-name {
+  padding-top: 20px;
+}
 
  @media screen and (max-width: 550px) {
   header {

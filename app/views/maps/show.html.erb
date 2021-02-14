@@ -5,10 +5,11 @@
         <h1><%= @map.spotname %></h1>
 
 
-
+         <div class = "hashtag-circle">
          <% @comment_tags.each do |comment| %>
-            <div><%= render_with_hashtags(comment.comment) %></div>
+            <%= render_with_hashtags(comment.comment) %>
          <% end %>
+         </div>
 
 
           <div class="average-star-rate<%= @map.id %>"></div>
@@ -58,38 +59,45 @@
           	<!--<h5>スポットの編集</h5>-->
             <td><%#= link_to "編集", edit_map_path(@map) %></td>
             <td><%#= link_to "削除", map_path(@map), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
-
-
+         <table class = "table">
+          <tbody>
             <% @comments.each do |comment| %>
+             <tr>
+             <td>
+                <h3><%= comment.title %></h3>
 
-            <h3><%= comment.title %></h3>
-
-             <div id="star-rate<%= comment.id %>"></div>
-            <div><%= render_with_hashtags(comment.comment) %></div>
-            <div><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
-            <% if user_signed_in? %>
-            <div><%= link_to comment.user.nickname, user_path(comment.user.id) %><%= t('.hascommented') %></div>
-            <% else %>
-            <div><%= comment.user.nickname %><%= t('.hascommented') %></div>
-            <% end %>
-            <div><%= comment.user.country_name %></div>
-            <div><%= t('.postedon') %><%= comment.created_at.strftime('%Y/%m/%d') %></div>
-            <script>
-                  $('#star-rate<%= comment.id %>').raty({
-                    size      : 25,
-                    starOff   : '<%= asset_path('star-off.png') %>',
-                    starOn    : '<%= asset_path('star-on.png') %>',
-                    starHalf:  '<%= asset_path('star-half.png') %>',
-                    readOnly: true,
-                    score: <%= comment.star %>,
-                  });
-                </script>
+                <div id="star-rate<%= comment.id %>"></div>
+                <div class = "hashtag-circle">
+                <div><%= render_with_hashtags(comment.comment) %></div>
+                </div>
+                <div><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
                 <% if user_signed_in? %>
-                <% if comment.user_id == current_user.id %>
-                <td><%= link_to t('.delete'), map_comment_path(comment.map_id, comment.id), method: :delete, data: {confirm: t('.areyousure')} %></td>
+                <div><%= link_to comment.user.nickname, user_path(comment.user.id) %><%= t('.hascommented') %></div>
+                <% else %>
+                <div><%= comment.user.nickname %><%= t('.hascommented') %></div>
                 <% end %>
-                <% end %>
-            <% end %></br>
+                <div><%= comment.user.country_name %></div>
+                <div><%= t('.postedon') %><%= comment.created_at.strftime('%Y/%m/%d') %></div>
+                <script>
+                      $('#star-rate<%= comment.id %>').raty({
+                        size      : 25,
+                        starOff   : '<%= asset_path('star-off.png') %>',
+                        starOn    : '<%= asset_path('star-on.png') %>',
+                        starHalf:  '<%= asset_path('star-half.png') %>',
+                        readOnly: true,
+                        score: <%= comment.star %>,
+                      });
+                    </script>
+                    <% if user_signed_in? %>
+                    <% if comment.user_id == current_user.id %>
+                    <%= link_to t('.delete'), map_comment_path(comment.map_id, comment.id), method: :delete, data: {confirm: t('.areyousure')} %>
+                    <% end %>
+                    <% end %>
+                  </td>
+               </tr>
+              <% end %><br>
+             </tbody>
+            </table>
 
             <%= paginate @comments %>
 
