@@ -32,7 +32,7 @@
            <% else %>
             <div class="slider">
              <% map.comments.select{|comment| comment.image.present?}.each do |comment| %>
-              <%= attachment_image_tag comment, :image, :fill, 100, 100, format: 'jpeg' %>
+              <%= attachment_image_tag comment, :image, size: "100x100", format: 'jpeg' %>
              <% end %>
             </div>
            <% end %>

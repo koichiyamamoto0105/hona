@@ -47,7 +47,7 @@
              <% else %>
              <div class="slider">
               <% @map.comments.select{|comment| comment.image.present?}.each do |comment| %>
-               <%= attachment_image_tag comment, :image, :fill, 100, 100, format: 'jpeg' %>
+               <%= attachment_image_tag comment, :image, size: "100x100", format: 'jpeg' %>
               <% end %>
               </div>
              <% end %>
@@ -70,7 +70,7 @@
                 <div class = "hashtag-circle">
                 <div><%= render_with_hashtags(comment.comment) %></div>
                 </div>
-                <div><%= attachment_image_tag(comment, :image, :fill, 100, 100 ) %></div>
+                <div><%= attachment_image_tag comment, :image, size: "100x100", format: 'jpeg'  %></div>
                 <% if user_signed_in? %>
                 <div><%= link_to comment.user.nickname, user_path(comment.user.id) %><%= t('.hascommented') %></div>
                 <% else %>
