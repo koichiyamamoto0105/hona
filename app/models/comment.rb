@@ -13,19 +13,6 @@ class Comment < ApplicationRecord
 
   attachment :image
 
-  def self.average_star
-    stars = pluck(:star)
-    average_star = 0
-    stars.each do |star|
-      average_star += star
-    end
-    begin
-      average_star /= stars.length
-    rescue
-      average_star = 0
-    end
-  end
-
 
   after_create do
     comment = Comment.find_by(id: self.id)
@@ -48,3 +35,7 @@ class Comment < ApplicationRecord
   end
 
 end
+
+
+
+

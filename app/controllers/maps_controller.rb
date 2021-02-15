@@ -72,7 +72,7 @@ class MapsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:title, :comment, :image, :star, :image_id)
+    params.require(:comment).permit(:title, :comment, :image, :star)
   end
 
 end
