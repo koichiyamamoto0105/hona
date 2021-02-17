@@ -1,5 +1,5 @@
 class MapsController < ApplicationController
-  before_action :authenticate_user!, except: [:top, :index, :show, :search]
+  before_action :authenticate_user!, except: [:top, :country,:index, :show, :search]
   # before_action :ensure_correct_user, only: [:update, :edit]
 
   def top

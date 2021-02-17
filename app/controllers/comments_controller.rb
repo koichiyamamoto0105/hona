@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:hashtag, :all_hashtag]
 
   def create
     @map = Map.find(params[:map_id])
