@@ -118,13 +118,13 @@ a.btn--shadow {
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 
-.container-fluid {
-  padding-top: 20px;
-}
+// .container-fluid {
+//   padding-top: 20px;
+// }
 
-.container {
-  padding-top: 20px;
-}
+// .container {
+//   padding-top: 20px;
+// }
 
 #map {
   height: 500px;
@@ -189,6 +189,7 @@ a.btn--shadow {
 
 .imagesize {
   width: 100px;
+  // height: 1000px;
 }
 
 
@@ -232,9 +233,9 @@ a.btn-gradient:hover {
 }
 
 // comments/hashtag
-.hashtag-name {
-  padding-top: 20px;
-}
+// .hashtag-name {
+//   padding-top: 20px;
+// }
 
  @media screen and (max-width: 550px) {
   header {
