@@ -29,6 +29,7 @@ en:
       point: "point(s)(average)"
      form:
       commentonlymember: "You can comment after being a member"
+      min_letter: "more than 5 letters"
       submitcomment: "Submit"
       selectimage: "select a image"
 

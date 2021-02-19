@@ -29,5 +29,6 @@ ja:
       point: "点"
      form:
       commentonlymember: "口コミ投稿は会員の方のみができます"
+      min_letter: "5文字以上"
       submitcomment: "口コミを投稿"
       selectimage: "画像選択"

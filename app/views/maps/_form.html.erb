@@ -10,7 +10,7 @@
 
   <div class="form-group">
     <%= f.label :comment, class:"control-label" %></br>
-    <%= f.text_area :comment, size:"25x7", placeholder:"5文字以上" %>
+    <%= f.text_area :comment, size:"25x7", placeholder: t('.min_letter') %>
     <% if @comment.errors.include?(:comment) %>
      <p style="color: red;"><%= @comment.errors.full_messages_for(:comment).first %>
     <% end %>
@@ -21,7 +21,7 @@
     <div class="image_wrapper">
     <div class="item_image_btn">
     <%= f.attachment_field :image, id: "file" %>
-   
+
     </div>
       <div id="img_field" onClick="$('#file').click()", class: "btn btn-primary">
     <div><%= t('.selectimage') %></div>

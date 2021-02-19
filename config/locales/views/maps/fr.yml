@@ -29,5 +29,6 @@ fr:
       point: "point(s)(en moyenne)"
      form:
       commentonlymember: "Inscrivez-vous pour commenter"
+      min_letter: "plus de 5 caractères"
       submitcomment: "Envoyer"
       selectimage: "choisir une image"
