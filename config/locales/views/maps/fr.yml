@@ -16,7 +16,7 @@ fr:
      index:
      map:
        <<: *map_common
-     show:
+     show: &map_common
       comment: "Il n'y a pas d'un bouche à oreille"
       newcomment: "Commentaire pour cet endroit"
       backtomap: "Retourner à la carte"
@@ -27,6 +27,8 @@ fr:
       postedon: "Commenté(e) à "
       review: "éstimation(s) "
       point: "point(s)(en moyenne)"
+     comment:
+      <<: *map_common
      form:
       commentonlymember: "Inscrivez-vous pour commenter"
       min_letter: "plus de 5 caractères"

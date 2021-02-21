@@ -16,7 +16,7 @@ en:
      index:
      map:
        <<: *map_common
-     show:
+     show: &map_common
       comment: "There is no comment for this spot"
       newcomment: "Comment on this spot"
       backtomap: "Back to Map"
@@ -27,6 +27,8 @@ en:
       postedon: "Posted on "
       review: "review(s) "
       point: "point(s)(average)"
+     comment:
+      <<: *map_common
      form:
       commentonlymember: "You can comment after being a member"
       min_letter: "more than 5 letters"

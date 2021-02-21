@@ -16,7 +16,7 @@ ja:
      index:
      map:
       <<: *map_common
-     show:
+     show: &map_common
       comment: "まだ口コミはありません"
       newcomment: "このスポットに口コミを投稿する"
       backtomap: "他のスポットに口コミを投稿する"
@@ -27,6 +27,8 @@ ja:
       postedon: "投稿日： "
       review: "件の評価中"
       point: "点"
+     comment:
+      <<: *map_common
      form:
       commentonlymember: "口コミ投稿は会員の方のみができます"
       min_letter: "5文字以上"
