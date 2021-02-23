@@ -4,7 +4,6 @@
     <div class='col-xs-9'>
         <h1><%= @map.spotname %></h1>
 
-
          <div class = "hashtag-circle">
          <% @comment_tags.each do |comment| %>
             <%= render_with_hashtags(comment.comment) %>
@@ -15,28 +14,28 @@
           <div class="average-star-rate<%= @map.id %>"></div>
            <% if @comments.present? %>
             <div><%= @comments.total_count %><%= t('.review')%><%= @map.comments.average(:star).to_f.round(1) %><%= t('.point')%></div>
-         <script>
-         $('.average-star-rate<%= @map.id %>').raty({
-           size      : 25,
-           starOff   : '<%= asset_path('star-off.png') %>',
-           starOn    : '<%= asset_path('star-on.png') %>',
-           starHalf  : '<%= asset_path('star-half.png') %>',
-           readOnly: true,
-           score: <%= @map.comments.average(:star) %>,
-          });
-         </script>
+             <script>
+               $('.average-star-rate<%= @map.id %>').raty({
+                 size      : 25,
+                 starOff   : '<%= asset_path('star-off.png') %>',
+                 starOn    : '<%= asset_path('star-on.png') %>',
+                 starHalf  : '<%= asset_path('star-half.png') %>',
+                 readOnly: true,
+                 score: <%= @map.comments.average(:star) %>,
+                });
+             </script>
            <% else %>
-          <p><%= t('.comment') %></p>
+             <p><%= t('.comment') %></p>
            <% end %>
 
             <!--いいねボタン-->
-             <% if user_signed_in? %>
+           <% if user_signed_in? %>
              <div id="like_<%= @map.id %>">
                <%= render "maps/favorite", map: @map %>
-          	</div>
-          	  <% else %>
-          	  <%= link_to "", new_user_session_path, class: "fa fa-heart-o" %>
-            <% end %>
+          	 </div>
+           <% else %>
+          	   <%= link_to "", new_user_session_path, class: "fa fa-heart-o" %>
+           <% end %>
 
            <%#= image_tag @comments_url %>
 
@@ -59,98 +58,54 @@
           	<!--<h5>スポットの編集</h5>-->
             <td><%#= link_to "編集", edit_map_path(@map) %></td>
             <td><%#= link_to "削除", map_path(@map), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %></td>
-         <table class = "table">
-          <tbody>
-            <% @comments.each do |comment| %>
-             <tr>
-             <td>
-                <h3><%= comment.title %></h3>
 
-                <div id="star-rate<%= comment.id %>"></div>
-                <div class = "hashtag-circle">
-                <div><%= render_with_hashtags(comment.comment) %></div>
-                </div>
-                <div><%= attachment_image_tag comment, :image, size: "100x100", format: 'jpeg'  %></div>
-                <% if user_signed_in? %>
-                <div><%= link_to comment.user.nickname, user_path(comment.user.id) %><%= t('.hascommented') %></div>
-                <% else %>
-                <div><%= comment.user.nickname %><%= t('.hascommented') %></div>
-                <% end %>
-                <div><%= comment.user.country_name %></div>
-                <div><%= t('.postedon') %><%= comment.created_at.strftime('%Y/%m/%d') %></div>
-                <script>
-                      $('#star-rate<%= comment.id %>').raty({
-                        size      : 25,
-                        starOff   : '<%= asset_path('star-off.png') %>',
-                        starOn    : '<%= asset_path('star-on.png') %>',
-                        starHalf:  '<%= asset_path('star-half.png') %>',
-                        readOnly: true,
-                        score: <%= comment.star %>,
-                      });
-                    </script>
-                    <% if user_signed_in? %>
-                    <% if comment.user_id == current_user.id %>
-                    <%= link_to t('.delete'), map_comment_path(comment.map_id, comment.id), method: :delete, data: {confirm: t('.areyousure')} %>
-                    <% end %>
-                    <% end %>
-                  </td>
-               </tr>
-              <% end %><br>
-             </tbody>
-            </table>
-
-            <%= paginate @comments %>
+              <%= render 'maps/comment', comments: @comments %>
 
 
+              <div id='mapshow'></div>
 
-<div id='mapshow'></div>
+              <script>
+                let map;
+                let geocoder;
+                let marker = [];
 
+               function initMap(){
 
-
-<script>
-  let map;
-  let geocoder;
-  let marker = [];
-
- function initMap(){
-
-    geocoder = new google.maps.Geocoder()
+                  geocoder = new google.maps.Geocoder()
 
 
-      latLng = {lat: <%= @map.latitude %>, lng: <%= @map.longitude %>};
-     map = new google.maps.Map(document.getElementById('mapshow'), {
-  center: latLng,
-  zoom: 8
-  });
+                    latLng = {lat: <%= @map.latitude %>, lng: <%= @map.longitude %>};
+                   map = new google.maps.Map(document.getElementById('mapshow'), {
+                center: latLng,
+                zoom: 8
+                });
 
-    var image = "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
-    var id = <%= @map.id %>
-    // 緯度経度のデータを作成
-    var markerLatLng = new google.maps.LatLng({lat: <%= @map.latitude %>, lng: <%= @map.longitude %>});
-    // マーカーの追加
-    marker["<%= @map.id %>"] = new google.maps.Marker({
-      position: markerLatLng,
-      map: map,
-      icon: image,
-    });
- }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer>
-</script>
-
-            </div>
+                  var image = "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+                  var id = <%= @map.id %>
+                  // 緯度経度のデータを作成
+                  var markerLatLng = new google.maps.LatLng({lat: <%= @map.latitude %>, lng: <%= @map.longitude %>});
+                  // マーカーの追加
+                  marker["<%= @map.id %>"] = new google.maps.Marker({
+                    position: markerLatLng,
+                    map: map,
+                    icon: image,
+                  });
+               }
+              </script>
+              <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer>
+              </script>
+    </div>
 
 
 
         <div class='col-xs-3'>
           <div class="commentnew">
-
-        <h4><%= t('.newcomment') %></h4>
-        <%= render 'maps/form', map: @map, comment: Comment.new %>
-        <h6><%= link_to  t('.backtomap'),  maps_path %></h6>
-        <% unless user_signed_in? %>
-        <h6><%= link_to  t('.logintocomment'), new_user_session_path%></h6>
-        <% end %>
+            <h4><%= t('.newcomment') %></h4>
+            <%= render 'maps/form', map: @map, comment: Comment.new %>
+            <h6><%= link_to  t('.backtomap'),  maps_path %></h6>
+            <% unless user_signed_in? %>
+            <h6><%= link_to  t('.logintocomment'), new_user_session_path%></h6>
+            <% end %>
           </div>
         </div>
     </div>
