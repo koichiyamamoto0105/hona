@@ -14,21 +14,35 @@ RSpec.describe 'Commentモデルのテスト', type: :model do
         test_comment.valid?
       end
 
-      it '50文字以下であること' do
-        test_comment.comment = Faker::Lorem.characters(number: 51)
+      it '空欄の場合はエラーが出る' do
+        test_comment.comment = ''
         test_comment.valid?
       end
+      
+      it '500文字以下であること' do
+        test_comment.comment = Faker::Lorem.characters(number: 500)
+        test_comment.valid?
+      end
+
+      it '評価は必須' do
+        test_comment.star = ""
+        test_comment.valid?
+      end
+
     end
   end
 
   describe 'アソシエーションのテスト' do
     context 'N:1のモデルとの関係' do
+
       it 'Userモデルとの関係' do
         expect(Comment.reflect_on_association(:user).macro).to eq :belongs_to
       end
+
       it 'Mapモデルとの関係' do
         expect(Comment.reflect_on_association(:map).macro).to eq :belongs_to
       end
+
     end
   end
 end
