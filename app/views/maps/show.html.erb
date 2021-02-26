@@ -42,7 +42,7 @@
            <div class="imagesize">
 
              <% if @map.comments.select{|comment| comment.image.present?}.count == 0 %>
-              <p>写真はまだありません</p>
+              <p><%= t('.nophoto') %></p>
              <% else %>
              <div class="slider">
               <% @map.comments.select{|comment| comment.image.present?}.each do |comment| %>

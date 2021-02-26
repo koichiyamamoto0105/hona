@@ -18,6 +18,7 @@ fr:
        <<: *map_common
      show: &map_common
       comment: "Il n'y a pas d'un bouche à oreille"
+      nophoto: "Il n'y a pas encore d'image"
       newcomment: "Commentaire pour cet endroit"
       backtomap: "Retourner à la carte"
       logintocomment: "Se connecter pour commenter"

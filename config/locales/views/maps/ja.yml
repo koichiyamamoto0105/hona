@@ -18,6 +18,7 @@ ja:
       <<: *map_common
      show: &map_common
       comment: "まだ口コミはありません"
+      nophoto: "写真はまだありません"
       newcomment: "このスポットに口コミを投稿する"
       backtomap: "他のスポットに口コミを投稿する"
       logintocomment: "ログインして口コミを投稿する"
