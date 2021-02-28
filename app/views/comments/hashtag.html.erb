@@ -1,23 +1,26 @@
-<h2>ハッシュタグ #<%= @tag.hashname %></h2>
-  <ul>
-    <% @comments.each do |comment| %>
-    <%# byebug %>
+<div class='col-lg-4 col-lg-offset-2'>
 
-    <h3><%= link_to comment.map.spotname, map_path(comment.map.id) %></h3>
-   <div class="average-star-rate<%= comment.map_id %>"></div>
-   <%# byebug %>
-   <script>
-         $('.average-star-rate<%= comment.map_id %>').raty({
-           size      : 25,
-           starOff   : '<%= asset_path('star-off.png') %>',
-           starOn    : '<%= asset_path('star-on.png') %>',
-           starHalf  : '<%= asset_path('star-half.png') %>',
-           readOnly: true,
-           score: <%= comment.map.comments.average(:star) %>,
-          });
-         </script>
-    <% end %>
-  </ul>
+      <h2><%= t('.hashtag') %> #<%= @tag.hashname %></h2>
+        <ul>
+          <% @comments.each do |comment| %>
+          <%# byebug %>
 
-<%= link_to "ハッシュタグ一覧", comment_all_hashtag_path %>
+          <h3><%= link_to comment.map.spotname, map_path(comment.map.id) %></h3>
+         <div class="average-star-rate<%= comment.map_id %>"></div>
+         <%# byebug %>
+         <script>
+               $('.average-star-rate<%= comment.map_id %>').raty({
+                 size      : 25,
+                 starOff   : '<%= asset_path('star-off.png') %>',
+                 starOn    : '<%= asset_path('star-on.png') %>',
+                 starHalf  : '<%= asset_path('star-half.png') %>',
+                 readOnly: true,
+                 score: <%= comment.map.comments.average(:star) %>,
+                });
+               </script>
+          <% end %>
+        </ul>
+
+      <%= link_to t('.hashtag_all'), comment_all_hashtag_path %>
+ </div>
 
