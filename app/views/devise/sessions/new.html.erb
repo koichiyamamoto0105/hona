@@ -1,30 +1,32 @@
-<section class="inner">
-  <h2 class="section-ttl"><%= t('.login') %></h2>
- <%= render "devise/shared/error_messages", resource: resource %>
+  <div class='col-lg-4 col-lg-offset-2'>
+    <section class="inner">
+      <h2 class="section-ttl"><%= t('.login') %></h2>
+     <%= render "devise/shared/error_messages", resource: resource %>
 
-  <%= form_with model: @user, url: session_path(resource_name), local: true do |f| %>
-    <div class="field mb2">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+      <%= form_with model: @user, url: session_path(resource_name), local: true do |f| %>
+        <div class="field mb2">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
 
-    <div class="field mb2">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
+        <div class="field mb2">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
 
-    <% if devise_mapping.rememberable? %>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end %>
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
 
-    <div class="actions">
-      <%= f.submit t('.login'), class: "btn btn-primary" %>
-    </div>
-  <% end %>
+        <div class="actions">
+          <%= f.submit t('.login'), class: "btn btn-primary" %>
+        </div>
+      <% end %>
 
-  <h2 class="section-ttl"><%= t('.bemember') %></h2>
-  <h2><%= t('.click') %><%= link_to t('.here'), new_user_registration_path, class: "underline" %><%= t('.tobemember') %></h2>
-</section>
+      <h2 class="section-ttl"><%= t('.bemember') %></h2>
+      <h2><%= t('.click') %><%= link_to t('.here'), new_user_registration_path, class: "underline" %><%= t('.tobemember') %></h2>
+    </section>
+</div>

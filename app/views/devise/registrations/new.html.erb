@@ -1,49 +1,51 @@
-<section class="inner">
-  <h2 class="section-ttl"><%= t('.registraitons') %></h2>
-
-  <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <table class="customer_info customer_form">
-      <thead>
-        <th></th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= f.label :name %></td>
-          <td><%= f.text_field :name, autofocus: true %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :nickname %></td>
-          <td><%= f.text_field :nickname %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :email %></td>
-          <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :country %></td>
-          <td><%= f.country_select :country, selected: "JP", format: :with_alpha2 %></td>
-        </tr>
-        <tr>
-          <td><%= f.label t('.password') %></td>
-          <td colspan="2"><%= f.password_field :password, autocomplete: "new-password" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label t('.password_confirmation') %></td>
-          <td colspan="2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td colspan="2"><%= f.submit "OK", class: "btn btn-success" %></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
-
-  <h2 class="section-ttl"><%= t('.ifmember') %></h2>
-  <p><%= t('.click') %><%= link_to t('.here'), new_user_session_path, class: "underline" %><%= t('.alreadymember') %></p>
-</section>
+<div class='col-lg-4 col-lg-offset-2'>
+    <section class="inner">
+      <h2 class="section-ttl"><%= t('.registraitons') %></h2>
+    
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <table class="customer_info customer_form">
+          <thead>
+            <th></th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= f.label :name %></td>
+              <td><%= f.text_field :name, autofocus: true %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :nickname %></td>
+              <td><%= f.text_field :nickname %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :email %></td>
+              <td colspan="2"><%= f.email_field :email, autocomplete: "email" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :country %></td>
+              <td><%= f.country_select :country, selected: "JP", format: :with_alpha2 %></td>
+            </tr>
+            <tr>
+              <td><%= f.label t('.password') %></td>
+              <td colspan="2"><%= f.password_field :password, autocomplete: "new-password" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label t('.password_confirmation') %></td>
+              <td colspan="2"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td colspan="2"><%= f.submit "OK", class: "btn btn-success" %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    
+      <h2 class="section-ttl"><%= t('.ifmember') %></h2>
+      <p><%= t('.click') %><%= link_to t('.here'), new_user_session_path, class: "underline" %><%= t('.alreadymember') %></p>
+    </section>
+  </div>
 
 
