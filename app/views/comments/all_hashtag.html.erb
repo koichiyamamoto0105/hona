@@ -1,8 +1,11 @@
-  <div class= "hashtag-name">
-      <% @tags.sort.reverse.each do |count| %>
-        <% count[1].each do |hashtag| %>
-        <p><%= link_to  "##{hashtag.hashname} (#{hashtag.comments.count}) 件","/comment/hashtag/#{hashtag.hashname}" %>
-        </p>
-        <% end %>
-      <% end %>
-  </div>
+<div class='col-lg-4 col-lg-offset-2'>
+
+      <div class= "hashtag-name">
+          <% @tags.sort.reverse.each do |count| %>
+            <% count[1].each do |hashtag| %>
+            <p><%= link_to  "##{hashtag.hashname} (#{hashtag.comments.count}) 件","/comment/hashtag/#{hashtag.hashname}" %>
+            </p>
+            <% end %>
+          <% end %>
+      </div>
+</div>
