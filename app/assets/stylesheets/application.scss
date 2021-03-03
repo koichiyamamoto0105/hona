@@ -52,7 +52,7 @@ header {
 }
 ul {
       display: flex;
-      padding-top: 10px;
+      padding-top: 35px;
 }
 
  li {
@@ -108,6 +108,12 @@ main {
 
 // map/top
 
+// .fas fa-search {
+//   paddin-bottom: 10px
+// }
+
+
+
 
 a.btn--orange {
   color: #fff;
@@ -153,12 +159,6 @@ a.btn--shadow {
   position: fixed;
 }
 
-.search-form {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 150px;
-  padding-bottom: 20px;
-}
 
 #top-center {
    position: absolute;

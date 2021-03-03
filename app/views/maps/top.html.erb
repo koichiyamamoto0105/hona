@@ -1,9 +1,18 @@
 <div class="container-fluid">
   <div class="row justify-content-start">
-   <!--<div id = "padding-left">-->
-    <div class='col-lg-4 col-lg-offset-2'>
 
-        <h1><%= t('.welcome') %></h1>
+
+  
+   
+    <!--<h1><%#= t('.welcome') %></h1>-->
+   <%= render 'maps/searchbar' %>
+   
+
+    <div class='col-lg-5 col-lg-offset-1'>
+      <%= render 'maps/map', maps: @maps, map: @map %>
+    </div>
+
+    <div class='col-lg-3 col-lg-offset-1'>
 
         <h3><%= t('.mostliked') %></h3>
         <% @all_ranks.each do |map| %>
@@ -45,9 +54,7 @@
     <!--</div>-->
    </div>
 
-    <div class='col-lg-5'>
-      <%= render 'maps/map', maps: @maps, map: @map %>
-    </div>
+
 
  </div>
 </div>
