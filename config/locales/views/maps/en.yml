@@ -35,4 +35,12 @@ en:
       min_letter: "more than 5 letters"
       submitcomment: "Submit"
       selectimage: "select a image"
+     searchbar:
+      serachspot: "Search Spotname"
+      hashtag: "Hashtag"
+      searchbutton: "Search"
+      exact: "Exact match"
+      forward: "Forward match"
+      backward: "Backward match"
+      partial: "Partial match"
 

@@ -35,3 +35,11 @@ ja:
       min_letter: "5文字以上"
       submitcomment: "口コミを投稿"
       selectimage: "画像選択"
+     searchbar:
+      serachspot: "スポットを探す"
+      hashtag: "ハッシュタグ"
+      searchbutton: "検索"
+      exact: "完全一致"
+      forward: "前方一致"
+      backward: "後方一致"
+      partial: "部分一致"

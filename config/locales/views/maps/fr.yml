@@ -35,3 +35,11 @@ fr:
       min_letter: "plus de 5 caractères"
       submitcomment: "Envoyer"
       selectimage: "choisir une image"
+     searchbar:
+      serachspot: "Chercher un endroit"
+      hashtag: "Hashtag"
+      searchbutton: "Recherche"
+      exact: "Concordance parfaite"
+      forward: "Concordance en avant"
+      backward: "Concordance en arrière"
+      partial: "Concordance partielle"
