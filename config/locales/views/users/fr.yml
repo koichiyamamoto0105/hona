@@ -6,6 +6,8 @@ fr:
      edittitle: "Éditer profile"
      likedspots: "Places favories"
      mypagetitle: "Ma page"
+     no_favorited: "Cet utilisateur n'a aucune place favorie"
+     selectimage: "choisir une image"
     edit:
       <<: *user_common
     favorites:

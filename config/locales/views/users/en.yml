@@ -6,6 +6,8 @@ en:
      edittitle: "Edit mypage"
      likedspots: "Liked Spots"
      mypagetitle: "My page"
+     no_favorited: "This user doesn't favorite asy spots"
+     selectimage: "select a image"
     edit:
       <<: *user_common
     favorites:

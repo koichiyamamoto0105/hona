@@ -6,6 +6,8 @@ ja:
      edittitle: "マイページの編集"
      likedspots: "いいねしたスポット一覧"
      mypagetitle: "マイページ"
+     no_favorited: "いいねしたスポットはまだありません"
+     selectimage: "画像選択"
     edit:
       <<: *user_common
     favorites:
