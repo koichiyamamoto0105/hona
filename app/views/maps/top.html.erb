@@ -16,7 +16,7 @@
 
         <h3><%= t('.mostliked') %></h3>
         <% @all_ranks.each do |map| %>
-         <div><%= link_to map.spotname, map_path(map.id) %></div>
+         <div><%= link_to map.spotname, map_path(map.id), class: "cp_link" %></div>
           <i class="fa fa-heart"></i>
             <%= map.favorites.count %>
             <% if map.comments.present? %>
