@@ -102,9 +102,9 @@
           <div class="commentnew">
             <h4><%= t('.newcomment') %></h4>
             <%= render 'maps/form', map: @map, comment: Comment.new %>
-            <h6><%= link_to  t('.backtomap'),  maps_path %></h6>
+            <h6><%= link_to  t('.backtomap'),  maps_path, class: "cp_link" %></h6>
             <% unless user_signed_in? %>
-            <h6><%= link_to  t('.logintocomment'), new_user_session_path%></h6>
+            <h6><%= link_to  t('.logintocomment'), new_user_session_path, class: "cp_link" %></h6>
             <% end %>
           </div>
         </div>
