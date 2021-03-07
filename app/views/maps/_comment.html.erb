@@ -11,7 +11,7 @@
                 </div>
                 <div><%= attachment_image_tag comment, :image, size: "100x100", format: 'jpeg'  %></div>
                 <% if user_signed_in? %>
-                <div><%= link_to comment.user.nickname, user_path(comment.user.id) %><%= t('.hascommented') %></div>
+                <div><%= link_to comment.user.nickname, user_path(comment.user.id), class: "userlink" %><%= t('.hascommented') %></div>
                 <% else %>
                 <div><%= comment.user.nickname %><%= t('.hascommented') %></div>
                 <% end %>
