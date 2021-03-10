@@ -218,7 +218,7 @@ main {
  }
 
 // map/show
-a.btn-gradient {
+.btn-gradient {
   font-size: 1.5rem;
   color: #ff8c00;
   border-radius: 100vh;
@@ -228,7 +228,7 @@ a.btn-gradient {
   box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 
-a.btn-gradient span {
+.btn-gradient span {
   background-image: -webkit-gradient(linear, left top, right top, from(#93a5cf), to(#e4efe9));
   background-image: -webkit-linear-gradient(left, #93a5cf 0%, #e4efe9 100%);
   background-image: linear-gradient(to right, #93a5cf 0%, #e4efe9 100%);
@@ -236,7 +236,7 @@ a.btn-gradient span {
   -webkit-text-fill-color: transparent;
 }
 
-a.btn-gradient:hover {
+.btn-gradient:hover {
   -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
   box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
 }
