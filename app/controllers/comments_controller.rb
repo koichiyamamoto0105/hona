@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
       redirect_to map_path(@map.id)
     else
       @comments = @map.comments.page(params[:page]).per(3)
+      @comment_tags = @comments.where("comment LIKE ? OR comment LIKE ?", "#%", "＃%").limit(10)
       render 'maps/show'
     end
   end

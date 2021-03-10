@@ -38,7 +38,7 @@ class MapsController < ApplicationController
     # @comment_find = Comment.find(params[:id])
     # byebug
     # @comments_url = "https://hona-file-resize.s3-ap-northeast-1.amazonaws.com/store/#{Comment.first.image_id.to_s}-thumbnail."
-    @comment_tags = @comments.where("comment LIKE ?", "#%").limit(10)
+    @comment_tags = @comments.where("comment LIKE ? OR comment LIKE ?", "#%", "＃%").limit(10)
   end
 
   # def edit
