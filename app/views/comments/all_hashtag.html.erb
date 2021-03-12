@@ -1,11 +1,15 @@
-<div class='col-lg-4 col-lg-offset-2'>
+<div class = "tag-box">
+  <h1 class = "center">Hashtags</h1>
+  <div class= "flex-tag">
 
-      <div class= "hashtag-name">
-          <% @tags.sort.reverse.each do |count| %>
-            <% count[1].each do |hashtag| %>
-            <p><%= link_to  "##{hashtag.hashname} (#{hashtag.comments.count}) 件","/comment/hashtag/#{hashtag.hashname}" %>
-            </p>
-            <% end %>
+      <% @tags.sort.reverse.each do |count| %>
+        <% count[1].each do |hashtag| %>
+          <% if hashtag.comments.select{|count| hashtag.hashname.present?}.count == 0 %>
+          <p></p>
+          <% else %>
+          <p><%= link_to  "##{hashtag.hashname} (#{hashtag.comments.count}) 件","/comment/hashtag/#{hashtag.hashname}", class: "btn btn-gradient"%></p>
           <% end %>
-      </div>
+        <% end %>
+      <% end %>
+  </div>
 </div>
