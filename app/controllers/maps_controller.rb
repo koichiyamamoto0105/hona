@@ -1,6 +1,5 @@
 class MapsController < ApplicationController
   before_action :authenticate_user!, except: [:top, :country,:index, :show, :search]
-  # before_action :ensure_correct_user, only: [:update, :edit]
 
   def top
     @all_ranks = Map.create_all_ranks
@@ -33,27 +32,8 @@ class MapsController < ApplicationController
     @map_new = Map.new
     @comment = Comment.new
     @comments = @map.comments.page(params[:page]).per(3)
-    # byebug
-    # @map2 = Map.find(params[:map_id])
-    # @comment_find = @map.id.comment
-    # @comment_find = Comment.find(params[:id])
-    # byebug
-    # @comments_url = "https://hona-file-resize.s3-ap-northeast-1.amazonaws.com/store/#{Comment.first.image_id.to_s}-thumbnail."
-    # @comment_tags = Hashtag.where("hashname LIKE ? OR hashname LIKE ?", "#%", "＃%").limit(10)
   end
 
-  # def edit
-  #   @map = Map.find(params[:id])
-  # end
-
-  # def update
-  #   @map = Map.find(params[:id])
-  #   if @map.update(map_params)
-  #     redirect_to maps_path
-  #   else
-  #     render :edit
-  #   end
-  # end
 
   def destroy
     @map = Map.find(params[:id])
