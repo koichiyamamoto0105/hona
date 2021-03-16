@@ -11,6 +11,7 @@ class Comment < ApplicationRecord
   validates :comment, presence: true, length: { minimum: 5, maximum: 500 }
   validates :star, presence: true
 
+
   attachment :image
 
 
@@ -19,7 +20,7 @@ class Comment < ApplicationRecord
     hashtags  = self.comment.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     comment.hashtags = []
     hashtags.uniq.map do |hashtag|
-      tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
+      tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete("#＃"))
       comment.hashtags << tag
     end
   end
