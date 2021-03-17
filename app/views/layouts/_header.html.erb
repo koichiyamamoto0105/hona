@@ -1,58 +1,69 @@
- <header>
-  <nav class="nav navbar-nav col-xs-5 text-center nav-left">
-     <div class="logo"><%= link_to image_tag("logo.png", style: "width: 80px; height: 80px;"), root_path, class: "logo" %><br>
-      <div class="language"><% I18n.available_locales.reject{|l| l == I18n.locale}.each do |locale| %>
-      <%= link_to(t('.' + @locale_name[locale]), i18n_url_for(params.merge(locale: locale).permit!), class: "btn btn-default") %>
-      <% end %>
-      </div>
-      </div>
-  </nav>
-
-  <nav class="nav navbar-nav col-xs-7 nav-right">
-    <% if user_signed_in? %>
-       <ul>
-          <li>
-           <%= link_to maps_path, class: "btn btn-default" do %>
-            <i class="fa fa-map" aria-hidden="true"></i>
-            <span><%= t('.map') %></span>
-           <% end %>
-          </li>
-          <li>
-           <%= link_to user_path(current_user), class: "btn btn-default" do %>
-            <i class="fa fa-user-circle" aria-hidden="true"></i>
-            <span><%= t('.mypage') %></span>
-           <% end %>
-          </li>
-          <li>
-           <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-default" do %>
-            <i class="fa fa-sign-out" aria-hidden="true"></i>
-            <span><%= t('.logout') %></span>
-           <% end %>
-          </li>
-       </ul>
-   <% else %>
-       <ul>
-          <li>
-           <%= link_to maps_path, class: "btn btn-default" do %>
-            <i class="fa fa-map" aria-hidden="true"></i>
-            <span><%= t('.map') %></span>
-           <% end %>
-          </li>
-          <li>
-           <%= link_to new_user_session_path, class: "btn btn-default" do %>
-            <i class="fa fa-sign-in" aria-hidden="true"></i>
-            <span><%=  t('.login') %></span>
-           <% end %>
-          </li>
-          <li>
-           <%= link_to users_guest_sign_in_path, method: :post, class: "btn btn-default" do %>
-            <i class="fa fa-user-secret" aria-hidden="true"></i>
-            <span><%= t('.geustuser') %></span>
-           <% end %>
-          </li>
-       </ul>
-  <% end %>
-    </nav>
 
 
- </header>
+          <header>
+              <nav class="nav navbar-nav col-xs-5 nav-left">
+                 <div class="logo"><%= link_to image_tag("logo.png", style: "width: 155px; height: 150px;"), root_path, class: "logo" %><br>
+                  <div class="language"><% I18n.available_locales.reject{|l| l == I18n.locale}.each do |locale| %>
+                  <%= link_to(t('.' + @locale_name[locale]), i18n_url_for(params.merge(locale: locale).permit!), class: "btn btn-default") %>
+                  <% end %>
+                  </div>
+                  </div>
+              </nav>
+
+              <nav class="nav navbar-nav col-xs-7 nav-right">
+                <% if user_signed_in? %>
+                   <ul>
+                      <li>
+                       <%= link_to maps_path, class: "btn btn-default" do %>
+                        <i class="fa fa-map" aria-hidden="true"></i>
+                        <span><%= t('.map') %></span>
+                       <% end %>
+                      </li>
+                      <li>
+                       <%= link_to user_path(current_user), class: "btn btn-default" do %>
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        <span><%= t('.mypage') %></span>
+                       <% end %>
+                      </li>
+                      <li>
+                       <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-default" do %>
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span><%= t('.logout') %></span>
+                       <% end %>
+                      </li>
+                   </ul>
+                 <% else %>
+                   <ul>
+                      <li>
+                       <%= link_to maps_path, class: "btn btn-default" do %>
+                        <i class="fa fa-map" aria-hidden="true"></i>
+                        <span><%= t('.map') %></span>
+                       <% end %>
+                      </li>
+                      <li>
+                       <%= link_to new_user_session_path, class: "btn btn-default" do %>
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        <span><%=  t('.login') %></span>
+                       <% end %>
+                      </li>
+                      <li>
+                       <%= link_to users_guest_sign_in_path, method: :post, class: "btn btn-default" do %>
+                        <i class="fa fa-user-secret" aria-hidden="true"></i>
+                        <span><%= t('.geustuser') %></span>
+                       <% end %>
+                      </li>
+                   </ul>
+                 <% end %>
+              </nav>
+
+              <div class="main-visual">
+               <div class="main-visual-content">
+                  <p class="main-visual-text">
+                   Welcome to Hona!
+                  </p>
+               </div>
+             </div>
+
+
+          </header>
+
