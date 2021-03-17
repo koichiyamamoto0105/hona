@@ -1,15 +1,15 @@
  <header>
-   <nav class="navbar navbar-default navbar-fixed-top">
-   <nav class="nav navbar-nav col-xs-5 text-center nav-left">
-    <div><%= link_to image_tag("logo.png", style: "width: 80px; height: 80px;"), root_path, class: "logo" %></div>
-    <% I18n.available_locales.reject{|l| l == I18n.locale}.each do |locale| %>
-    <%= link_to(t('.' + @locale_name[locale]), i18n_url_for(params.merge(locale: locale).permit!), class: "btn btn-default") %>
-    <% end %>
-   </nav>
+  <nav class="nav navbar-nav col-xs-5 text-center nav-left">
+     <div class="logo"><%= link_to image_tag("logo.png", style: "width: 80px; height: 80px;"), root_path, class: "logo" %><br>
+      <div class="language"><% I18n.available_locales.reject{|l| l == I18n.locale}.each do |locale| %>
+      <%= link_to(t('.' + @locale_name[locale]), i18n_url_for(params.merge(locale: locale).permit!), class: "btn btn-default") %>
+      <% end %>
+      </div>
+      </div>
+  </nav>
 
-    <nav class="nav navbar-nav col-xs-7 nav-right">
+  <nav class="nav navbar-nav col-xs-7 nav-right">
     <% if user_signed_in? %>
-
        <ul>
           <li>
            <%= link_to maps_path, class: "btn btn-default" do %>
@@ -30,7 +30,6 @@
            <% end %>
           </li>
        </ul>
-
    <% else %>
        <ul>
           <li>
@@ -53,6 +52,7 @@
           </li>
        </ul>
   <% end %>
-  </nav>
+    </nav>
 
-  </header>
+
+ </header>

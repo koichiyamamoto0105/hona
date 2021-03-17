@@ -22,81 +22,43 @@
   box-sizing: border-box;
 }
 
-header {
-  // border: solid black;
-  // border-top-width: 5px;
-  // border-right-width: 5px;
-  // border-left-width: 5px;
+.main-visual {
   width: 100%;
-  position: fixed;
-  background-color: #fff;
-  z-index: 500;
+  height: 300px;
+  background-image: url(map.jpg);
+  background-size: cover;
+  // background-position: center;
 
-  .header-content {
-      text-align: left;
- }
 
- .navbar-default {
-  background-color: white;
+    header {
+
+
+    .logo {
+      padding-top: 5em;
+      padding-left: 6em;
+    }
+
+    .language {
+      padding-top: 5px;
+      padding-left: 6em;
+    }
+
+    ul {
+          display: flex;
+          padding-top: 10em;
+          padding-right: 15em;
+          justify-content: flex-end;
+
+    }
+
+     li {
+            list-style: none;
+            display: flex;
+            margin-left: 10px;
+     }
+   }
 }
 
-.nav-left {
-  padding-top: 20px;
-}
-
-.nav-right {
-  padding-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-ul {
-      display: flex;
-      padding-top: 35px;
-}
-
- li {
-        list-style: none;
-        display: flex;
-        justify-content: center;
- }
-
-}
-
-// .nav-list {
-//   text-align: center;
-//   padding: 10px 0;
-//   margin: 0 auto;
-//   height: 50px;
-// }
-
-// .nav-list-item {
-//   list-style: none;
-//   display: inline-block;
-//   margin: 0 20px;
-//   height: 30px;
-// }
-
-// #I18n-button {
-//   padding-top: 10px;
-//   padding-right: 10px;
-//   display: flex;
-//   justify-content: flex-end;
-// }
-
-
-
-main {
-  padding: 150px 0;
-}
-
-// #maptop {
-//   height: 500px;
-// }
-
-// #padding-left {
-//   padding-left: 200px;
-// }
 
 
 // user/edit
@@ -105,13 +67,6 @@ main {
   padding-top: 15px;
   padding-bottom: 55px;
 }
-
-// map/top
-
-// .fas fa-search {
-//   paddin-bottom: 10px
-// }
-
 
 
 
