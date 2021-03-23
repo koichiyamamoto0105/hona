@@ -1,7 +1,7 @@
  <!--<div class="col-lg-1 col-lg-offset-1 search-bar">-->
 
      <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <i class="fas fa-search"></i>
+      <i class="fas fa-search" style="color:white"></i>
       <%= f.text_field :content, class: "search_form" %>
       <%= f.select :model, options_for_select({ t('.serachspot') => "map", t('.hashtag') => "hashtag" }) %>
       <%= f.select :method, options_for_select({  t('.exact') => "perfect",  t('.forward') => "forward",  t('.backward') => "backward",  t('.partial') => "partial" }) %>
