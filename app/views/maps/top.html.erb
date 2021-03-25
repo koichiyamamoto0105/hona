@@ -10,23 +10,41 @@
 </div>
 
 
-     <div class="container-fluid">
-       <div class="row justify-content-start">
+     <!--<div class="container-fluid">-->
+     <!--  <div class="row justify-content-start">-->
 
 
          <!--<h1><%#= t('.welcome') %></h1>-->
 
 
-
-         <div class='col-lg-5 col-lg-offset-2'>
+        <div class="row">
+         <div class="col-lg-1">
+         </div>
+         <div class="col-lg-5">
            <%= render 'maps/map', maps: @maps, map: @map %>
          </div>
+         <div class="col-lg-4">
 
-         <div class='col-lg-4 col-lg-offset-1'>
+          <h2>First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta
+            felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+            tellus ac cursus commodo.</p>
+         </div>
+         <div class="col-lg-1">
+         </div>
+        </div>
+
+        <hr>
+
+
+        <div class="row">
+         <div class='col-lg-11 col-lg-offset-1'>
 
              <h3><%= t('.mostliked') %></h3>
+
              <% @all_ranks.each do |map| %>
-              <div><%= link_to map.spotname, map_path(map.id), class: "cp_link" %></div>
+             <!--<div class="rank-flex">-->
+              <%= link_to map.spotname, map_path(map.id), class: "cp_link" %><br>
                <i class="fa fa-heart"></i>
                  <%= map.favorites.count %>
                  <% if map.comments.present? %>
@@ -56,12 +74,13 @@
                  </div>
                 <% end %>
               </div>
+              <!--</div>-->
              <% end %>
 
              <%= link_to t('.ranks_by_country'), country_maps_path, class: "btn btn--orange" %> <br>
              <%= link_to t('.hashtag_all'), comment_all_hashtag_path, class: "btn btn--orange" %>
 
-         <!--</div>-->
-        </div>
+
+       <!-- </div>-->
        </div>
      </div>
