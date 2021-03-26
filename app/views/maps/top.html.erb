@@ -37,13 +37,16 @@
         <hr>
 
 
-        <div class="row">
-         <div class='col-lg-11 col-lg-offset-1'>
+        <div class="row justify-content-center">
 
-             <h3><%= t('.mostliked') %></h3>
-
+           <!--<div class="col-lg-1 col-lg-offset-1">-->
+            <div class="col-lg-offset-1">
+            <h3><%= t('.mostliked') %></h3>
+           </div>
+            <!--<div class="rank-flex">-->
              <% @all_ranks.each do |map| %>
-             <!--<div class="rank-flex">-->
+             <div class="mini-content col-md-5 col-lg-3 col-lg-offset-1">
+
               <%= link_to map.spotname, map_path(map.id), class: "cp_link" %><br>
                <i class="fa fa-heart"></i>
                  <%= map.favorites.count %>
@@ -63,24 +66,23 @@
                    <p><%= t('.nocomment') %></p>
                  <% end %>
 
-              <div class="imagesize">
-                <% if map.comments.select{|comment| comment.image.present?}.count == 0 %>
-                 <p><%= t('.noimage') %></p>
-                <% else %>
-                 <div class="slider">
-                  <% map.comments.select{|comment| comment.image.present?}.each do |comment| %>
-                   <%= attachment_image_tag comment, :image, size: "100x100", format: 'jpeg' %>
-                  <% end %>
-                 </div>
-                <% end %>
+               <div class="imagesize">
+                 <% if map.comments.select{|comment| comment.image.present?}.count == 0 %>
+                  <p><%= t('.noimage') %></p>
+                 <% else %>
+                  <div class="slider">
+                   <% map.comments.select{|comment| comment.image.present?}.each do |comment| %>
+                    <%= attachment_image_tag comment, :image, size: "100x100", format: 'jpeg' %>
+                   <% end %>
+                  </div>
+                 <% end %>
+               </div>
               </div>
-              <!--</div>-->
              <% end %>
+             <!--</div>-->
 
              <%= link_to t('.ranks_by_country'), country_maps_path, class: "btn btn--orange" %> <br>
              <%= link_to t('.hashtag_all'), comment_all_hashtag_path, class: "btn btn--orange" %>
 
-
-       <!-- </div>-->
-       </div>
+       <!--</div>-->
      </div>
