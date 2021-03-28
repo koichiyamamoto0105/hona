@@ -9,14 +9,6 @@
      </div>
 </div>
 
-
-     <!--<div class="container-fluid">-->
-     <!--  <div class="row justify-content-start">-->
-
-
-         <!--<h1><%#= t('.welcome') %></h1>-->
-
-
         <div class="row">
          <div class="col-lg-1">
          </div>
@@ -44,9 +36,9 @@
             <h3><%= t('.mostliked') %></h3>
            </div>
             <!--<div class="rank-flex">-->
-             <% @all_ranks.each do |map| %>
+             <% @all_ranks.each.with_index(1) do |map, i| %>
              <div class="mini-content col-md-5 col-lg-3 col-lg-offset-1">
-
+              <%= i %>.
               <%= link_to map.spotname, map_path(map.id), class: "cp_link" %><br>
                <i class="fa fa-heart"></i>
                  <%= map.favorites.count %>
