@@ -31,11 +31,11 @@
 
         <div class="row justify-content-center">
 
-           <!--<div class="col-lg-1 col-lg-offset-1">-->
+
             <div class="col-lg-offset-1">
             <h3><%= t('.mostliked') %></h3>
            </div>
-            <!--<div class="rank-flex">-->
+
              <% @all_ranks.each.with_index(1) do |map, i| %>
              <div class="mini-content col-md-5 col-lg-3 col-lg-offset-1">
               <%= i %>.
@@ -71,7 +71,7 @@
                </div>
               </div>
              <% end %>
-             <!--</div>-->
+
          <div class="ranking_index">
           <%= link_to t('.ranks_by_country'), country_maps_path, class: "btn btn--orange" %> <br>
           <%= link_to t('.hashtag_all'), comment_all_hashtag_path, class: "btn btn--orange" %>
