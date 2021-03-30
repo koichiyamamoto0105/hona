@@ -1,12 +1,20 @@
-<div class='col-lg-4 col-lg-offset-2'>
+<div class = "container">
+    <div class="row">
 
-  <% if @model == 'map' %>
-   <h3><%= t('.result_spot')%> "<%= @content %>"</h3>
-    <%= render 'maps/index', maps: @records %>
-   <h5><%= t('.create_spot')%> =><%=link_to "Go", maps_path %></h5>
-  <% elsif @model == 'hashtag' %>
-  	<h3><%= t('.result_hashtag')%>"<%= @content %>"</h3>
-    <%= render 'hashtags/index', hashtags: @records %>
-  <% end %>
+        <div class='col-lg-4 col-lg-offset-2'>
 
+          <% if @model == 'map' %>
+           <h3><%= t('.result_spot')%> "<%= @content %>"</h3>
+            <%= render 'maps/index', maps: @records %>
+           <h5><%= t('.create_spot')%> =><%=link_to "Go", maps_path %></h5>
+          <% elsif @model == 'hashtag' %>
+          	<h3><%= t('.result_hashtag')%>"<%= @content %>"</h3>
+            <%= render 'hashtags/index', hashtags: @records %>
+          <% end %>
+
+        </div>
+
+        <div class ="col-lg-6">
+        </div>
+     </div>
 </div>
