@@ -1,52 +1,59 @@
-	<div class='col-lg-4 col-lg-offset-2'>
+	<div class = "container">
+    <div class="row">
 
-		<h3><%= t('.edittitle') %></h3>
+			<div class='col-lg-4 col-lg-offset-2'>
 
-		<%= form_with model:@user, local: true do |f| %>
+				<h3><%= t('.edittitle') %></h3>
 
-			<!-- エラーメッセージ表示-->
-		<%= render 'layouts/error_messages', model: f.object %>
+				<%= form_with model:@user, local: true do |f| %>
 
-			<div class="field">
-			<%= f.label :name %>
-				<%= f.text_field :name, class: "name" %>
-				<% if f.object.errors.include?(:name) %>
-		     <p style="color: red;"><%= f.object.errors.full_messages_for(:name).first %>
-		    <% end %>
-			</div>
+					<!-- エラーメッセージ表示-->
+				<%= render 'layouts/error_messages', model: f.object %>
 
-     <div class="user-edit-image">
-			<div class="field">
-				<%= f.label :profile_image %>
-				<div class="image_wrapper">
-	        <div class="item_image_btn">
-
-					<%= f.attachment_field :profile_image, id: "file" %>
+					<div class="field">
+					<%= f.label :name %>
+						<%= f.text_field :name, class: "name" %>
+						<% if f.object.errors.include?(:name) %>
+				     <p style="color: red;"><%= f.object.errors.full_messages_for(:name).first %>
+				    <% end %>
 					</div>
-		      <div id="img_field" onClick="$('#file').click()", class: "btn btn-primary">
-		       <div><%= t('.selectimage') %></div>
-          </div>
-        </div>
-			</div>
-		 </div>
 
-			<div class="field">
-				<%= f.label :nickname %>
-				<%= f.text_field :nickname, class: "name" %>
-					<% if f.object.errors.include?(:nickname) %>
-		     <p style="color: red;"><%= f.object.errors.full_messages_for(:nickname).first %>
-		    <% end %>
-			</div>
+		     <div class="user-edit-image">
+					<div class="field">
+						<%= f.label :profile_image %>
+						<div class="image_wrapper">
+			        <div class="item_image_btn">
 
-			<div class="field">
-				<%= f.label :country %>
-				<%= f.country_select :country, selected: "JP", format: :with_alpha2 %>
-			</div>
+							<%= f.attachment_field :profile_image, id: "file" %>
+							</div>
+				      <div id="img_field" onClick="$('#file').click()", class: "btn btn-primary">
+				       <div><%= t('.selectimage') %></div>
+		          </div>
+		        </div>
+					</div>
+				 </div>
 
-			<div class="actions">
-				<%= f.submit %>
-			</div>
+					<div class="field">
+						<%= f.label :nickname %>
+						<%= f.text_field :nickname, class: "name" %>
+							<% if f.object.errors.include?(:nickname) %>
+				     <p style="color: red;"><%= f.object.errors.full_messages_for(:nickname).first %>
+				    <% end %>
+					</div>
 
-		<% end %>
+					<div class="field">
+						<%= f.label :country %>
+						<%= f.country_select :country, selected: "JP", format: :with_alpha2 %>
+					</div>
 
+					<div class="actions">
+						<%= f.submit %>
+					</div>
+
+				<% end %>
+
+		</div>
+		<div class ="col-lg-6">
+    </div>
+   </div>
 </div>
