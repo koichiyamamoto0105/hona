@@ -1,27 +1,34 @@
-<div class='col-lg-4 col-lg-offset-2'>
+<div class = "container">
+  <div class="row">     
+      
+      <div class='col-lg-4 col-lg-offset-2'>
+      
+            <h2><%= t('.hashtag') %> #<%= @tag.hashname %></h2>
+              <ul>
+                <% @comments.group(:map_id).each do |comment| %>
+                <%# byebug %>
+      
+                <h3><%= link_to comment.map.spotname, map_path(comment.map_id) %></h3>
+                   <div class="average-star-rate<%= comment.map_id %>"></div>
+                   <%# byebug %>
+                   <script>
+                         $('.average-star-rate<%= comment.map_id %>').raty({
+                           size      : 25,
+                           starOff   : '<%= asset_path('star-off.png') %>',
+                           starOn    : '<%= asset_path('star-on.png') %>',
+                           starHalf  : '<%= asset_path('star-half.png') %>',
+                           readOnly: true,
+                           score: <%= comment.map.comments.average(:star) %>,
+                          });
+                         </script>
+                    <% end %>
+                    <%# end %>
+              </ul>
+      
+            <%= link_to t('.hashtag_all'), comment_all_hashtag_path %>
+      </div>
 
-      <h2><%= t('.hashtag') %> #<%= @tag.hashname %></h2>
-        <ul>
-          <% @comments.group(:map_id).each do |comment| %>
-          <%# byebug %>
-
-          <h3><%= link_to comment.map.spotname, map_path(comment.map_id) %></h3>
-             <div class="average-star-rate<%= comment.map_id %>"></div>
-             <%# byebug %>
-             <script>
-                   $('.average-star-rate<%= comment.map_id %>').raty({
-                     size      : 25,
-                     starOff   : '<%= asset_path('star-off.png') %>',
-                     starOn    : '<%= asset_path('star-on.png') %>',
-                     starHalf  : '<%= asset_path('star-half.png') %>',
-                     readOnly: true,
-                     score: <%= comment.map.comments.average(:star) %>,
-                    });
-                   </script>
-              <% end %>
-              <%# end %>
-        </ul>
-
-      <%= link_to t('.hashtag_all'), comment_all_hashtag_path %>
- </div>
-
+      <div class ="col-lg-6">
+      </div>
+  </div>
+</div>
