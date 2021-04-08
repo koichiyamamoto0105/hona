@@ -8,7 +8,7 @@
                 <% @comments.group(:map_id).each do |comment| %>
                 <%# byebug %>
 
-                <h3><%= link_to comment.map.spotname, map_path(comment.map_id) %></h3>
+                <h3><%= link_to comment.map.spotname, map_path(comment.map_id), class: "cp_link" %></h3>
                    <div class="average-star-rate<%= comment.map_id %>"></div>
                    <%# byebug %>
                    <script>
@@ -25,7 +25,7 @@
                     <%# end %>
               </ul>
 
-            <%= link_to t('.hashtag_all'), comment_all_hashtag_path %>
+            <%= link_to t('.hashtag_all'), comment_all_hashtag_path, class: "btn btn--orange" %>
       </div>
 
       <div class ="col-lg-6">
