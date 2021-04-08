@@ -1,13 +1,13 @@
 <div class = "container">
-  <div class="row">     
-      
-      <div class='col-lg-4 col-lg-offset-2'>
-      
+  <div class="row">
+
+      <div class='col-lg-5 col-lg-offset-1'>
+
             <h2><%= t('.hashtag') %> #<%= @tag.hashname %></h2>
               <ul>
                 <% @comments.group(:map_id).each do |comment| %>
                 <%# byebug %>
-      
+
                 <h3><%= link_to comment.map.spotname, map_path(comment.map_id) %></h3>
                    <div class="average-star-rate<%= comment.map_id %>"></div>
                    <%# byebug %>
@@ -24,7 +24,7 @@
                     <% end %>
                     <%# end %>
               </ul>
-      
+
             <%= link_to t('.hashtag_all'), comment_all_hashtag_path %>
       </div>
 
