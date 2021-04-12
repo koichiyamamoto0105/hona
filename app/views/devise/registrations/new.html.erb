@@ -1,7 +1,7 @@
-<div class='col-lg-4 col-lg-offset-2'>
+<div class='col-lg-5 col-lg-offset-1'>
     <section class="inner">
       <h2 class="section-ttl"><%= t('.registraitons') %></h2>
-    
+
       <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <table class="customer_info customer_form">
@@ -42,10 +42,11 @@
           </tbody>
         </table>
       <% end %>
-    
+
       <h2 class="section-ttl"><%= t('.ifmember') %></h2>
       <p><%= t('.click') %><%= link_to t('.here'), new_user_session_path, class: "underline" %><%= t('.alreadymember') %></p>
     </section>
   </div>
 
-
+<div class ="col-lg-6">
+</div>
