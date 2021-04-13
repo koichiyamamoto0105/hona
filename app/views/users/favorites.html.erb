@@ -7,7 +7,7 @@
           <tbody>
         <% @favorite_list.each do |map| %>
           <tr>
-          <td><%= link_to map.spotname, map_path(map.id) %></td>
+          <td><%= link_to map.spotname, map_path(map.id), class: "cp_link" %></td>
           </tr>
           </tbody>
         <% end %>
