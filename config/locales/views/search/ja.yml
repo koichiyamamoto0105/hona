@@ -3,6 +3,7 @@ ja:
     search:
      result_spot: "スポットの検索結果"
      create_spot: "新たにスポットを登録する"
+     link_to_map: "口コミマップへ"
      result_hashtag: "ハッシュタグの検索結果"
 
 

@@ -3,5 +3,6 @@ fr:
     search:
      result_spot: "Place(s) à la recherche de"
      create_spot: "Insccrire une nouvelle place"
+     link_to_map: "Lien à la carte"
      result_hashtag: "Hashtag(s) à la recherche de"
-     
+

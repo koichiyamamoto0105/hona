@@ -3,4 +3,5 @@ en:
     search: 
      result_spot: "Spot search for"
      create_spot: "Post new Spot"
+     link_to_map: "Jump to Map"
      result_hashtag: "Hashtag search for"
