@@ -6,7 +6,7 @@
           <% if @model == 'map' %>
            <h3><%= t('.result_spot')%> "<%= @content %>"</h3>
             <%= render 'maps/index', maps: @records %>
-           <h5><%= t('.create_spot')%> =><%=link_to "Go", maps_path %></h5>
+           <h5><%= t('.create_spot')%> =><%=link_to t('.link_to_map'), maps_path, class: "cp_link" %></h5>
           <% elsif @model == 'hashtag' %>
           	<h3><%= t('.result_hashtag')%>"<%= @content %>"</h3>
             <%= render 'hashtags/index', hashtags: @records %>
