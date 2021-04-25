@@ -15,7 +15,7 @@
   <input type="hidden" name="map[longitude]" id="hidden_longitude">
   <%= f.label :spotname %>
   <%= f.text_field :spotname, readonly: true %>
-  <%= f.submit t('.registration') %>
+  <%= f.submit t('.registration'), class: "btn btn-success" %>
   <% end %>
   <% else %>
   <div>※<%= t('.warning') %></div>
