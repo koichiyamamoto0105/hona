@@ -5,7 +5,7 @@
       <%= f.text_field :content, class: "search_form" %>
       <%= f.select :model, options_for_select({ t('.serachspot') => "map", t('.hashtag') => "hashtag" }) %>
       <%= f.select :method, options_for_select({  t('.exact') => "perfect",  t('.forward') => "forward",  t('.backward') => "backward",  t('.partial') => "partial" }) %>
-      <%= f.submit t('.searchbutton') %>
+      <%= f.submit t('.searchbutton'), class: "submit_button" %>
      <% end %>
 
  <!--</div>-->
