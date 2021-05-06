@@ -11,7 +11,7 @@ en:
       description: "Use left map to find already posted spots"
       description2: "Post as new spot when you could not find it"
       description3: "Once posted, the spot can be accessed from the pin on the map, and you can post a review on the destination page!"
-      description4: ""
+      description4: "You can also check popular spots at the bottom of the page."
       description5: ""
       warning: "You need to registrate to post Spots"
       error: "This spot is already posted"
