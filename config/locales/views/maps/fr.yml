@@ -12,7 +12,7 @@ fr:
       description2: ""
       description3: "Une fois posté, le spot est accessible à partir de l'épingle sur la carte, et peut être posté oralement sur la page de la destination de transition!"
       description4: "Vous pouvez également consulter les spots populaires au bas de la page."
-      description5: ""
+      description5: "Vous pouvez rechercher des hashtags spot dans le champ de recherche en haut."
       warning: "Il a besoin de s'inscrire pour poster"
       error: "Cet endroit est déjà existé"
       nocomment: "Personne n'a commenté"
