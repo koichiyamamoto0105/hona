@@ -13,7 +13,7 @@ en:
       description3: "Once posted, the spot can be accessed from the pin on the map, and you can post a review on the destination page!"
       description4: "You can also check popular spots at the bottom of the page."
       description5: "You can search for spot hashtags from the search box at the top."
-      warning: "You need to registrate to post Spots"
+      warning: "Only members can post spots."
       error: "This spot is already posted"
       nocomment: "No one posted comment on this spot"
       noimage: "No Images posted"
