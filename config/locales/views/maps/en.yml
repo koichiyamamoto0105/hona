@@ -14,7 +14,7 @@ en:
       description4: "You can also check popular spots at the bottom of the page."
       description5: "You can search for spot hashtags from the search box at the top."
       warning: "Only members can post spots."
-      error: "This spot is already posted"
+      error: "The spot has already been registered."
       nocomment: "No one posted comment on this spot"
       noimage: "No Images posted"
       ranks_by_country: "Top 3 most liked spot by country"
