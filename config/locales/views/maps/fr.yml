@@ -15,7 +15,7 @@ fr:
       description5: "Vous pouvez rechercher des hashtags spot dans le champ de recherche en haut."
       warning: "Seuls les membres peuvent publier des spots."
       error: "Cet endroit est déjà existé"
-      nocomment: "Personne n'a commenté"
+      nocomment: "Aucun avis pour le moment"
       noimage: "Il n'y a pas encore d'image"
       ranks_by_country: "Les Top 3 places plus favoris par pays"
       hashtag_all: "La liste d'Hashtag"
