@@ -1,7 +1,7 @@
 en:
    maps:
      top: &map_common
-      information: "Search Spots on Big Map"
+      information: "Find a spot on a large map"
       welcome: "Welocome to Hona!"
       mostliked: "Popular Spots"
       searchandpost: "Search/Post a Spot"
