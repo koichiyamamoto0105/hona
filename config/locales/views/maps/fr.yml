@@ -23,7 +23,7 @@ fr:
      map:
        <<: *map_common
      show: &map_common
-      comment: "Il n'y a pas d'un bouche à oreille"
+      comment: "Aucun avis pour le moment"
       nophoto: "Il n'y a pas encore d'image"
       newcomment: "Commentaire pour cet endroit"
       backtomap: "Retourner à la carte"
