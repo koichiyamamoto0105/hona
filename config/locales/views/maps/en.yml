@@ -37,7 +37,7 @@ en:
      comment:
       <<: *map_common
      form:
-      commentonlymember: "You can comment after being a member"
+      commentonlymember: "Only members can post reviews"
       min_letter: "more than 5 letters"
       submitcomment: "Submit"
       selectimage: "select a image"
