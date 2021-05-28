@@ -37,7 +37,7 @@ fr:
      comment:
       <<: *map_common
      form:
-      commentonlymember: "Inscrivez-vous pour commenter"
+      commentonlymember: "Seuls les membres peuvent publier des avis"
       min_letter: "plus de 5 caractères"
       submitcomment: "Envoyer"
       selectimage: "choisir une image"
