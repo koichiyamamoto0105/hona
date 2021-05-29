@@ -25,7 +25,7 @@ en:
      show: &map_common
       comment: "There is no comment for this spot"
       nophoto: "No Images posted"
-      newcomment: "Comment on this spot"
+      newcomment: "Post a review on this spot"
       backtomap: "Back to Map"
       logintocomment: "Log in and post a review"
       hascommented: "has commented"
