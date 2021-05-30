@@ -25,7 +25,7 @@ fr:
      show: &map_common
       comment: "Aucun avis pour le moment"
       nophoto: "Il n'y a pas encore d'image"
-      newcomment: "Commentaire pour cet endroit"
+      newcomment: "Poster un avis sur cet endroit"
       backtomap: "Retourner à la carte"
       logintocomment: "Se connecter pour publier un avis"
       hascommented: "a commenté(e)"
