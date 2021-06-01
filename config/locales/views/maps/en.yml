@@ -30,7 +30,7 @@ en:
       logintocomment: "Log in and post a review"
       hascommented: "has commented"
       delete: "delete"
-      areyousure: "Are you sure?"
+      areyousure: "Are you sure you want to delete it?"
       postedon: "Posted on "
       review: "review(s) "
       point: "point(s)(average)"
