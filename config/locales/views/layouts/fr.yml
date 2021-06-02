@@ -5,7 +5,7 @@ fr:
        mypage: "Ma page"
        logout: "Se déconnecter"
        login: "Se connecter"
-       geustuser: "Se connecter en tant qu'utilisateur hôte"
+       geustuser: "Connexion invité"
        ja: "日本語"
        en: "English"
        fr: "Français"
