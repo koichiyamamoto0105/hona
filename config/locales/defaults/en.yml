@@ -15,5 +15,5 @@ en:
       comment:
         title: "Title"
         comment: "Comment"
-        image: "Image(not necessary)"
+        image: "Image(you can post without it)"
         star: "Score"
