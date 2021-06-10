@@ -15,7 +15,7 @@ ja:
       comment:
         title: "タイトル"
         comment: "コメント"
-        image: "写真（なくても投稿できます）"
+        image: "写真（写真がなくても投稿できます）"
         star: "評価"
 
 
