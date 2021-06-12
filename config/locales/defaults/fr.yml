@@ -4,7 +4,7 @@ fr:
     attributes:
       user:
         name: "Nom"
-        profile_image: "Image de profile"
+        profile_image: "Photo de profil"
         nickname: "surnom"
         country: "Pays"
         email: "Adresse électronique"
