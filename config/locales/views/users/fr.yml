@@ -1,7 +1,7 @@
 fr:
    users:
     show: &user_common
-     username: "Surnom"
+     username: "Nom d'utilisateur"
      country: "Pays"
      edittitle: "Éditer profile"
      likedspots: "Liste des spots préférés"
