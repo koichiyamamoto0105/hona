@@ -7,7 +7,7 @@ fr:
      likedspots: "Liste des spots préférés"
      mypagetitle: "Ma page"
      no_favorited: "Cet utilisateur n'a aucune place favorie"
-     selectimage: "choisir une image"
+     selectimage: "Choisir une image"
     edit:
       <<: *user_common
     favorites:
