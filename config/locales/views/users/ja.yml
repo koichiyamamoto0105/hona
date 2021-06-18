@@ -2,7 +2,7 @@ ja:
    users:
     show: &user_common
      username: "ユーザーネーム"
-     country: "居住国"
+     country: "国"
      edittitle: "マイページの編集"
      likedspots: "いいねしたスポット一覧"
      mypagetitle: "マイページ"
