@@ -3,7 +3,7 @@ fr:
     show: &user_common
      username: "Nom d'utilisateur"
      country: "Pays"
-     edittitle: "Éditer profile"
+     edittitle: "Modifier profile"
      likedspots: "Liste des spots préférés"
      mypagetitle: "Ma page"
      no_favorited: "Cet utilisateur n'a aucune place favorie"
